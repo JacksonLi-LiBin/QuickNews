@@ -7,7 +7,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
 public class NewsFragmentPagerAdapter extends FragmentPagerAdapter {
-	// private List<Fragment>
+
 	public NewsFragmentPagerAdapter(FragmentManager fm) {
 		super(fm);
 		// TODO Auto-generated constructor stub
