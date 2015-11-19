@@ -90,7 +90,6 @@
         </attr>
         <attr name="selected_color" format="color" />
         <attr name="unselected_color" format="color" />
-
         <!-- indicator style -->
         <attr name="selected_drawable" format="reference" />
         <attr name="unselected_drawable" format="reference" />
@@ -123,7 +122,6 @@
             <enum name="invisible" value="1" />
         </attr>
         <attr name="auto_cycle" format="boolean" />
-
         <!-- page animation -->
         <attr name="pager_animation" format="enum">
             <enum name="Default" value="0">Default</enum>
@@ -143,7 +141,6 @@
             <enum name="ZoomOutSlide" value="14">ZoomOutSlide</enum>
             <enum name="ZoomOut" value="15">ZoomOut</enum>
         </attr>
-
         <!-- page animation time span -->
         <attr name="pager_animation_span" format="integer" />
     </declare-styleable>

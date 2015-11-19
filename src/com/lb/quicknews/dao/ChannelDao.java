@@ -6,13 +6,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.lb.quicknews.bean.ChannelItem;
+import com.lb.quicknews.db.SQLHelper;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-
-import com.lb.quicknews.bean.ChannelItem;
-import com.lb.quicknews.db.SQLHelper;
 
 public class ChannelDao implements ChannelService {
 	private SQLHelper helper;

@@ -1,14 +1,13 @@
 
 package com.lb.quicknews.wedget.discrollview;
 
+import android.R;
 import android.animation.ArgbEvaluator;
 import android.content.Context;
 import android.graphics.Color;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import com.lb.quicknews.R;
 
 /**
  *

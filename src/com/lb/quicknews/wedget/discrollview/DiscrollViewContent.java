@@ -1,6 +1,7 @@
 
 package com.lb.quicknews.wedget.discrollview;
 
+import android.R;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -8,8 +9,6 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-
-import com.lb.quicknews.R;
 
 /**
  *

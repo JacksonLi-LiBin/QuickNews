@@ -43,5 +43,6 @@
     <color name="drop_down_list_footer_font_color">#A2A3A2</color>
     <!-- listview风格线 -->
     <color name="list_divider">#f1f1e8</color>
-<color name="image_loading_bg">#ffefefef</color>
+    <color name="image_loading_bg">#ffefefef</color>
+
 </resources>

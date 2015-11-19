@@ -1,13 +1,12 @@
 
 package com.lb.quicknews.wedget.viewimage.SliderTypes;
 
+import android.R;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.lb.quicknews.R;
 
 /**
  * This is a slider with a description TextView.

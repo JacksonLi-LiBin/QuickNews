@@ -3,9 +3,9 @@ package com.lb.quicknews.dao;
 import java.util.List;
 import java.util.Map;
 
-import android.content.ContentValues;
-
 import com.lb.quicknews.bean.ChannelItem;
+
+import android.content.ContentValues;
 
 public interface ChannelService {
 	public boolean addCache(ChannelItem item);

@@ -9,6 +9,17 @@ import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
+import com.lb.quicknews.App;
+import com.lb.quicknews.adapter.NewsFragmentPagerAdapter;
+import com.lb.quicknews.bean.ChannelItem;
+import com.lb.quicknews.bean.ChannelManage;
+import com.lb.quicknews.initview.SlidingMenuView;
+import com.lb.quicknews.utils.BaseTools;
+import com.lb.quicknews.view.LeftView;
+import com.lb.quicknews.wedget.ColumnHorizontalScrollView;
+import com.lb.quicknews.wedget.slidingmenu.SlidingMenu;
+
+import android.R;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
@@ -20,19 +31,6 @@ import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
-import com.lb.quicknews.App;
-import com.lb.quicknews.R;
-import com.lb.quicknews.adapter.NewsFragmentPagerAdapter;
-import com.lb.quicknews.bean.ChannelItem;
-import com.lb.quicknews.bean.ChannelManage;
-import com.lb.quicknews.fragment.NewsFragment_;
-import com.lb.quicknews.initview.SlidingMenuView;
-import com.lb.quicknews.utils.BaseTools;
-import com.lb.quicknews.view.LeftView;
-import com.lb.quicknews.view.LeftView_;
-import com.lb.quicknews.wedget.ColumnHorizontalScrollView;
-import com.lb.quicknews.wedget.slidingmenu.SlidingMenu;
 
 @EActivity(R.layout.activity_main)
 public class MainActivity extends BaseActivity {

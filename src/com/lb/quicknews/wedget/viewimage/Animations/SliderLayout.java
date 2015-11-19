@@ -5,18 +5,6 @@ import java.lang.reflect.Field;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import android.content.Context;
-import android.content.res.TypedArray;
-import android.os.Message;
-import android.support.v4.view.PagerAdapter;
-import android.util.AttributeSet;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.animation.Interpolator;
-import android.widget.RelativeLayout;
-
-import com.lb.quicknews.R;
 import com.lb.quicknews.wedget.viewimage.Indicators.PagerIndicator;
 import com.lb.quicknews.wedget.viewimage.SliderTypes.BaseSliderView;
 import com.lb.quicknews.wedget.viewimage.Transformers.AccordionTransformer;
@@ -40,6 +28,18 @@ import com.lb.quicknews.wedget.viewimage.Tricks.FixedSpeedScroller;
 import com.lb.quicknews.wedget.viewimage.Tricks.InfinitePagerAdapter;
 import com.lb.quicknews.wedget.viewimage.Tricks.InfiniteViewPager;
 import com.lb.quicknews.wedget.viewimage.Tricks.ViewPagerEx;
+
+import android.R;
+import android.content.Context;
+import android.content.res.TypedArray;
+import android.os.Message;
+import android.support.v4.view.PagerAdapter;
+import android.util.AttributeSet;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.animation.Interpolator;
+import android.widget.RelativeLayout;
 
 /**
  * SliderLayout is compound layout. This is combined with

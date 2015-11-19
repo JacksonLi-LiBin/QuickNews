@@ -1,13 +1,12 @@
 
 package com.lb.quicknews.wedget.discrollview;
 
+import android.R;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.RelativeLayout;
-
-import com.lb.quicknews.R;
 
 public class DiscrollvableLastLayout extends RelativeLayout implements Discrollvable {
 
