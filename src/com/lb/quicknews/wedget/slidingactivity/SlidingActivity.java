@@ -1,9 +1,9 @@
 
 package com.lb.quicknews.wedget.slidingactivity;
 
+import com.lb.quicknews.R;
 import com.nineoldandroids.view.ViewHelper;
 
-import android.R;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;

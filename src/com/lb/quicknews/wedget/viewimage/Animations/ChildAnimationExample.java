@@ -1,10 +1,10 @@
 
 package com.lb.quicknews.wedget.viewimage.Animations;
 
+import com.lb.quicknews.R;
 import com.nineoldandroids.animation.ObjectAnimator;
 import com.nineoldandroids.animation.ValueAnimator;
 
-import android.R;
 import android.util.Log;
 import android.view.View;
 

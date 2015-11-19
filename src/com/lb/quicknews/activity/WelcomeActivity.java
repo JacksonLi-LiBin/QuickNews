@@ -5,10 +5,10 @@ import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
+import com.lb.quicknews.R;
 import com.lb.quicknews.utils.StringUtils;
 import com.lb.quicknews.wedget.discrollview.DiscrollView;
 
-import android.R;
 import android.view.View;
 import android.widget.Button;
 

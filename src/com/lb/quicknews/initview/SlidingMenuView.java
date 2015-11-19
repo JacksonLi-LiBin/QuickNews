@@ -1,9 +1,9 @@
 package com.lb.quicknews.initview;
 
+import com.lb.quicknews.R;
 import com.lb.quicknews.wedget.slidingmenu.SlidingMenu;
 import com.lb.quicknews.wedget.slidingmenu.SlidingMenu.CanvasTransformer;
 
-import android.R;
 import android.app.Activity;
 import android.graphics.Canvas;
 import android.view.View;
@@ -28,8 +28,7 @@ public class SlidingMenuView {
 			@Override
 			public void transformCanvas(Canvas canvas, float percentOpen) {
 				float scale = (float) (percentOpen * 0.25 + 0.75);
-				canvas.scale(scale, scale, canvas.getWidth() / 2,
-						canvas.getHeight() / 2);
+				canvas.scale(scale, scale, canvas.getWidth() / 2, canvas.getHeight() / 2);
 			}
 		};
 		slidingMenu = new SlidingMenu(activity);
@@ -52,61 +51,46 @@ public class SlidingMenuView {
 	}
 
 	public void setWeatherImage(ImageView mWeatherImage, String weather) {
-		if (weather.equals("多云") || weather.equals("多云转阴")
-				|| weather.equals("多云转晴")) {
-			mWeatherImage
-					.setImageResource(R.drawable.biz_plugin_weather_duoyun);
+		if (weather.equals("多云") || weather.equals("多云转阴") || weather.equals("多云转晴")) {
+			mWeatherImage.setImageResource(R.drawable.biz_plugin_weather_duoyun);
 		} else if (weather.equals("中雨") || weather.equals("中到大雨")) {
-			mWeatherImage
-					.setImageResource(R.drawable.biz_plugin_weather_zhongyu);
+			mWeatherImage.setImageResource(R.drawable.biz_plugin_weather_zhongyu);
 		} else if (weather.equals("雷阵雨")) {
-			mWeatherImage
-					.setImageResource(R.drawable.biz_plugin_weather_leizhenyu);
+			mWeatherImage.setImageResource(R.drawable.biz_plugin_weather_leizhenyu);
 		} else if (weather.equals("阵雨") || weather.equals("阵雨转多云")) {
-			mWeatherImage
-					.setImageResource(R.drawable.biz_plugin_weather_zhenyu);
+			mWeatherImage.setImageResource(R.drawable.biz_plugin_weather_zhenyu);
 		} else if (weather.equals("暴雪")) {
-			mWeatherImage
-					.setImageResource(R.drawable.biz_plugin_weather_baoxue);
+			mWeatherImage.setImageResource(R.drawable.biz_plugin_weather_baoxue);
 		} else if (weather.equals("暴雨")) {
 			mWeatherImage.setImageResource(R.drawable.biz_plugin_weather_baoyu);
 		} else if (weather.equals("大暴雨")) {
-			mWeatherImage
-					.setImageResource(R.drawable.biz_plugin_weather_dabaoyu);
+			mWeatherImage.setImageResource(R.drawable.biz_plugin_weather_dabaoyu);
 		} else if (weather.equals("大雪")) {
 			mWeatherImage.setImageResource(R.drawable.biz_plugin_weather_daxue);
 		} else if (weather.equals("大雨") || weather.equals("大雨转中雨")) {
 			mWeatherImage.setImageResource(R.drawable.biz_plugin_weather_dayu);
 		} else if (weather.equals("雷阵雨冰雹")) {
-			mWeatherImage
-					.setImageResource(R.drawable.biz_plugin_weather_leizhenyubingbao);
+			mWeatherImage.setImageResource(R.drawable.biz_plugin_weather_leizhenyubingbao);
 		} else if (weather.equals("晴")) {
 			mWeatherImage.setImageResource(R.drawable.biz_plugin_weather_qing);
 		} else if (weather.equals("沙尘暴")) {
-			mWeatherImage
-					.setImageResource(R.drawable.biz_plugin_weather_shachenbao);
+			mWeatherImage.setImageResource(R.drawable.biz_plugin_weather_shachenbao);
 		} else if (weather.equals("特大暴雨")) {
-			mWeatherImage
-					.setImageResource(R.drawable.biz_plugin_weather_tedabaoyu);
+			mWeatherImage.setImageResource(R.drawable.biz_plugin_weather_tedabaoyu);
 		} else if (weather.equals("雾") || weather.equals("雾霾")) {
 			mWeatherImage.setImageResource(R.drawable.biz_plugin_weather_wu);
 		} else if (weather.equals("小雪")) {
-			mWeatherImage
-					.setImageResource(R.drawable.biz_plugin_weather_xiaoxue);
+			mWeatherImage.setImageResource(R.drawable.biz_plugin_weather_xiaoxue);
 		} else if (weather.equals("小雨")) {
-			mWeatherImage
-					.setImageResource(R.drawable.biz_plugin_weather_xiaoyu);
+			mWeatherImage.setImageResource(R.drawable.biz_plugin_weather_xiaoyu);
 		} else if (weather.equals("阴")) {
 			mWeatherImage.setImageResource(R.drawable.biz_plugin_weather_yin);
 		} else if (weather.equals("雨夹雪")) {
-			mWeatherImage
-					.setImageResource(R.drawable.biz_plugin_weather_yujiaxue);
+			mWeatherImage.setImageResource(R.drawable.biz_plugin_weather_yujiaxue);
 		} else if (weather.equals("阵雪")) {
-			mWeatherImage
-					.setImageResource(R.drawable.biz_plugin_weather_zhenxue);
+			mWeatherImage.setImageResource(R.drawable.biz_plugin_weather_zhenxue);
 		} else if (weather.equals("中雪")) {
-			mWeatherImage
-					.setImageResource(R.drawable.biz_plugin_weather_zhongxue);
+			mWeatherImage.setImageResource(R.drawable.biz_plugin_weather_zhongxue);
 		}
 	}
 }

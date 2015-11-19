@@ -1,9 +1,9 @@
 
 package com.lb.quicknews.wedget.slidingmenu;
 
+import com.lb.quicknews.R;
 import com.lb.quicknews.wedget.slidingmenu.SlidingMenu.CanvasTransformer;
 
-import android.R;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;

@@ -3,10 +3,15 @@ package com.lb.quicknews.view;
 import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EViewGroup;
 
+import com.lb.quicknews.R;
 import com.lb.quicknews.activity.BaseActivity;
+import com.lb.quicknews.activity.MoreActivity_;
+import com.lb.quicknews.activity.NewsActivity_;
+import com.lb.quicknews.activity.PictureActivity_;
+import com.lb.quicknews.activity.VideoActivity_;
+import com.lb.quicknews.activity.WeatherActivity_;
 import com.lb.quicknews.initview.SlidingMenuView;
 
-import android.R;
 import android.content.Context;
 import android.view.View;
 import android.widget.LinearLayout;

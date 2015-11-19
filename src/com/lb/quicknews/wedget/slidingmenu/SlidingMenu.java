@@ -2,9 +2,9 @@ package com.lb.quicknews.wedget.slidingmenu;
 
 import java.lang.reflect.Method;
 
+import com.lb.quicknews.R;
 import com.lb.quicknews.wedget.slidingmenu.CustomViewAbove.OnPageChangeListener;
 
-import android.R;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;

@@ -20,7 +20,8 @@ package com.lb.quicknews.wedget.swipelistview;
 
 import java.util.List;
 
-import android.R;
+import com.lb.quicknews.R;
+
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.database.DataSetObserver;
@@ -257,42 +258,24 @@ public class SwipeListView extends ListView implements OnScrollListener {
 		int swipeActionRight = SWIPE_ACTION_REVEAL;
 
 		if (attrs != null) {
-			TypedArray styled = getContext().obtainStyledAttributes(attrs,
-					R.styleable.SwipeListView);
-			swipeMode = styled.getInt(R.styleable.SwipeListView_swipeMode,
-					SWIPE_MODE_BOTH);
-			swipeActionLeft = styled.getInt(
-					R.styleable.SwipeListView_swipeActionLeft,
-					SWIPE_ACTION_REVEAL);
-			swipeActionRight = styled.getInt(
-					R.styleable.SwipeListView_swipeActionRight,
-					SWIPE_ACTION_REVEAL);
-			swipeOffsetLeft = styled.getDimension(
-					R.styleable.SwipeListView_swipeOffsetLeft, 0);
-			swipeOffsetRight = styled.getDimension(
-					R.styleable.SwipeListView_swipeOffsetRight, 0);
-			swipeOpenOnLongPress = styled.getBoolean(
-					R.styleable.SwipeListView_swipeOpenOnLongPress, true);
-			swipeAnimationTime = styled.getInteger(
-					R.styleable.SwipeListView_swipeAnimationTime, 0);
-			swipeCloseAllItemsWhenMoveList = styled.getBoolean(
-					R.styleable.SwipeListView_swipeCloseAllItemsWhenMoveList,
+			TypedArray styled = getContext().obtainStyledAttributes(attrs, R.styleable.SwipeListView);
+			swipeMode = styled.getInt(R.styleable.SwipeListView_swipeMode, SWIPE_MODE_BOTH);
+			swipeActionLeft = styled.getInt(R.styleable.SwipeListView_swipeActionLeft, SWIPE_ACTION_REVEAL);
+			swipeActionRight = styled.getInt(R.styleable.SwipeListView_swipeActionRight, SWIPE_ACTION_REVEAL);
+			swipeOffsetLeft = styled.getDimension(R.styleable.SwipeListView_swipeOffsetLeft, 0);
+			swipeOffsetRight = styled.getDimension(R.styleable.SwipeListView_swipeOffsetRight, 0);
+			swipeOpenOnLongPress = styled.getBoolean(R.styleable.SwipeListView_swipeOpenOnLongPress, true);
+			swipeAnimationTime = styled.getInteger(R.styleable.SwipeListView_swipeAnimationTime, 0);
+			swipeCloseAllItemsWhenMoveList = styled.getBoolean(R.styleable.SwipeListView_swipeCloseAllItemsWhenMoveList,
 					true);
-			swipeDrawableChecked = styled.getResourceId(
-					R.styleable.SwipeListView_swipeDrawableChecked, 0);
-			swipeDrawableUnchecked = styled.getResourceId(
-					R.styleable.SwipeListView_swipeDrawableUnchecked, 0);
-			swipeFrontView = styled.getResourceId(
-					R.styleable.SwipeListView_swipeFrontView, 0);
-			swipeBackView = styled.getResourceId(
-					R.styleable.SwipeListView_swipeBackView, 0);
+			swipeDrawableChecked = styled.getResourceId(R.styleable.SwipeListView_swipeDrawableChecked, 0);
+			swipeDrawableUnchecked = styled.getResourceId(R.styleable.SwipeListView_swipeDrawableUnchecked, 0);
+			swipeFrontView = styled.getResourceId(R.styleable.SwipeListView_swipeFrontView, 0);
+			swipeBackView = styled.getResourceId(R.styleable.SwipeListView_swipeBackView, 0);
 
-			isDropDownStyle = styled.getBoolean(
-					R.styleable.SwipeListView_swipeIsDropDownStyle, false);
-			isOnBottomStyle = styled.getBoolean(
-					R.styleable.SwipeListView_swipeIsOnBottomStyle, false);
-			isAutoLoadOnBottom = styled.getBoolean(
-					R.styleable.SwipeListView_swipeIsAutoLoadOnBottom, false);
+			isDropDownStyle = styled.getBoolean(R.styleable.SwipeListView_swipeIsDropDownStyle, false);
+			isOnBottomStyle = styled.getBoolean(R.styleable.SwipeListView_swipeIsOnBottomStyle, false);
+			isAutoLoadOnBottom = styled.getBoolean(R.styleable.SwipeListView_swipeIsAutoLoadOnBottom, false);
 
 		}
 
@@ -302,28 +285,21 @@ public class SwipeListView extends ListView implements OnScrollListener {
 		super.setOnScrollListener(this);
 
 		if (swipeFrontView == 0 || swipeBackView == 0) {
-			swipeFrontView = getContext().getResources().getIdentifier(
-					SWIPE_DEFAULT_FRONT_VIEW, "id",
+			swipeFrontView = getContext().getResources().getIdentifier(SWIPE_DEFAULT_FRONT_VIEW, "id",
 					getContext().getPackageName());
-			swipeBackView = getContext().getResources().getIdentifier(
-					SWIPE_DEFAULT_BACK_VIEW, "id",
+			swipeBackView = getContext().getResources().getIdentifier(SWIPE_DEFAULT_BACK_VIEW, "id",
 					getContext().getPackageName());
 
 			if (swipeFrontView == 0 || swipeBackView == 0) {
-				throw new RuntimeException(
-						String.format(
-								"You forgot the attributes swipeFrontView or swipeBackView. You can add this attributes or use '%s' and '%s' identifiers",
-								SWIPE_DEFAULT_FRONT_VIEW,
-								SWIPE_DEFAULT_BACK_VIEW));
+				throw new RuntimeException(String.format(
+						"You forgot the attributes swipeFrontView or swipeBackView. You can add this attributes or use '%s' and '%s' identifiers",
+						SWIPE_DEFAULT_FRONT_VIEW, SWIPE_DEFAULT_BACK_VIEW));
 			}
 		}
 
-		final ViewConfiguration configuration = ViewConfiguration
-				.get(getContext());
-		touchSlop = ViewConfigurationCompat
-				.getScaledPagingTouchSlop(configuration);
-		touchListener = new SwipeListViewTouchListener(this, swipeFrontView,
-				swipeBackView);
+		final ViewConfiguration configuration = ViewConfiguration.get(getContext());
+		touchSlop = ViewConfigurationCompat.getScaledPagingTouchSlop(configuration);
+		touchListener = new SwipeListViewTouchListener(this, swipeFrontView, swipeBackView);
 		if (swipeAnimationTime > 0) {
 			touchListener.setAnimationTime(swipeAnimationTime);
 		}
@@ -332,8 +308,7 @@ public class SwipeListView extends ListView implements OnScrollListener {
 		touchListener.setSwipeActionLeft(swipeActionLeft);
 		touchListener.setSwipeActionRight(swipeActionRight);
 		touchListener.setSwipeMode(swipeMode);
-		touchListener
-				.setSwipeClosesAllItemsWhenListMoves(swipeCloseAllItemsWhenMoveList);
+		touchListener.setSwipeClosesAllItemsWhenListMoves(swipeCloseAllItemsWhenMoveList);
 		touchListener.setSwipeOpenOnLongPress(swipeOpenOnLongPress);
 		touchListener.setSwipeDrawableChecked(swipeDrawableChecked);
 		touchListener.setSwipeDrawableUnchecked(swipeDrawableUnchecked);
@@ -357,24 +332,17 @@ public class SwipeListView extends ListView implements OnScrollListener {
 			return;
 		}
 
-		footerDefaultText = context
-				.getString(R.string.drop_down_list_footer_default_text);
-		footerLoadingText = context
-				.getString(R.string.drop_down_list_footer_loading_text);
-		footerNoMoreText = context
-				.getString(R.string.drop_down_list_footer_no_more_text);
+		footerDefaultText = context.getString(R.string.drop_down_list_footer_default_text);
+		footerLoadingText = context.getString(R.string.drop_down_list_footer_loading_text);
+		footerNoMoreText = context.getString(R.string.drop_down_list_footer_no_more_text);
 
-		LayoutInflater inflater = (LayoutInflater) context
-				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		footerLayout = (RelativeLayout) inflater.inflate(
-				R.layout.drop_down_list_footer, this, false);
-		footerButton = (Button) footerLayout
-				.findViewById(R.id.drop_down_list_footer_button);
+		LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		footerLayout = (RelativeLayout) inflater.inflate(R.layout.drop_down_list_footer, this, false);
+		footerButton = (Button) footerLayout.findViewById(R.id.drop_down_list_footer_button);
 		footerButton.setDrawingCacheBackgroundColor(0);
 		footerButton.setEnabled(true);
 
-		footerProgressBar = (ProgressBar) footerLayout
-				.findViewById(R.id.drop_down_list_footer_progress_bar);
+		footerProgressBar = (ProgressBar) footerLayout.findViewById(R.id.drop_down_list_footer_progress_bar);
 		addFooterView(footerLayout);
 	}
 
@@ -464,8 +432,7 @@ public class SwipeListView extends ListView implements OnScrollListener {
 	 *            position in list
 	 */
 	public void recycle(View convertView, int position) {
-		touchListener.reloadChoiceStateInView(
-				convertView.findViewById(swipeFrontView), position);
+		touchListener.reloadChoiceStateInView(convertView.findViewById(swipeFrontView), position);
 	}
 
 	/**
@@ -623,8 +590,7 @@ public class SwipeListView extends ListView implements OnScrollListener {
 	 *            to right
 	 */
 	protected void onStartOpen(int position, int action, boolean right) {
-		if (swipeListViewListener != null
-				&& position != ListView.INVALID_POSITION) {
+		if (swipeListViewListener != null && position != ListView.INVALID_POSITION) {
 			swipeListViewListener.onStartOpen(position, action, right);
 		}
 	}
@@ -637,8 +603,7 @@ public class SwipeListView extends ListView implements OnScrollListener {
 	 * @param right
 	 */
 	protected void onStartClose(int position, boolean right) {
-		if (swipeListViewListener != null
-				&& position != ListView.INVALID_POSITION) {
+		if (swipeListViewListener != null && position != ListView.INVALID_POSITION) {
 			swipeListViewListener.onStartClose(position, right);
 		}
 	}
@@ -650,8 +615,7 @@ public class SwipeListView extends ListView implements OnScrollListener {
 	 *            item clicked
 	 */
 	protected void onClickFrontView(int position) {
-		if (swipeListViewListener != null
-				&& position != ListView.INVALID_POSITION) {
+		if (swipeListViewListener != null && position != ListView.INVALID_POSITION) {
 			swipeListViewListener.onClickFrontView(position);
 		}
 	}
@@ -663,8 +627,7 @@ public class SwipeListView extends ListView implements OnScrollListener {
 	 *            back item clicked
 	 */
 	protected void onClickBackView(int position) {
-		if (swipeListViewListener != null
-				&& position != ListView.INVALID_POSITION) {
+		if (swipeListViewListener != null && position != ListView.INVALID_POSITION) {
 			swipeListViewListener.onClickBackView(position);
 		}
 	}
@@ -678,8 +641,7 @@ public class SwipeListView extends ListView implements OnScrollListener {
 	 *            If should be opened toward the right
 	 */
 	protected void onOpened(int position, boolean toRight) {
-		if (swipeListViewListener != null
-				&& position != ListView.INVALID_POSITION) {
+		if (swipeListViewListener != null && position != ListView.INVALID_POSITION) {
 			swipeListViewListener.onOpened(position, toRight);
 		}
 	}
@@ -693,8 +655,7 @@ public class SwipeListView extends ListView implements OnScrollListener {
 	 *            If open from right
 	 */
 	protected void onClosed(int position, boolean fromRight) {
-		if (swipeListViewListener != null
-				&& position != ListView.INVALID_POSITION) {
+		if (swipeListViewListener != null && position != ListView.INVALID_POSITION) {
 			swipeListViewListener.onClosed(position, fromRight);
 		}
 	}
@@ -708,8 +669,7 @@ public class SwipeListView extends ListView implements OnScrollListener {
 	 *            if item is selected or not
 	 */
 	protected void onChoiceChanged(int position, boolean selected) {
-		if (swipeListViewListener != null
-				&& position != ListView.INVALID_POSITION) {
+		if (swipeListViewListener != null && position != ListView.INVALID_POSITION) {
 			swipeListViewListener.onChoiceChanged(position, selected);
 		}
 	}
@@ -768,15 +728,13 @@ public class SwipeListView extends ListView implements OnScrollListener {
 	 *            Current position
 	 */
 	protected void onMove(int position, float x) {
-		if (swipeListViewListener != null
-				&& position != ListView.INVALID_POSITION) {
+		if (swipeListViewListener != null && position != ListView.INVALID_POSITION) {
 			swipeListViewListener.onMove(position, x);
 		}
 	}
 
 	protected int changeSwipeMode(int position) {
-		if (swipeListViewListener != null
-				&& position != ListView.INVALID_POSITION) {
+		if (swipeListViewListener != null && position != ListView.INVALID_POSITION) {
 			return swipeListViewListener.onChangeSwipeMode(position);
 		}
 		return SWIPE_MODE_DEFAULT;
@@ -788,8 +746,7 @@ public class SwipeListView extends ListView implements OnScrollListener {
 	 * @param swipeListViewListener
 	 *            Listener
 	 */
-	public void setSwipeListViewListener(
-			SwipeListViewListener swipeListViewListener) {
+	public void setSwipeListViewListener(SwipeListViewListener swipeListViewListener) {
 		this.swipeListViewListener = swipeListViewListener;
 	}
 
@@ -825,10 +782,8 @@ public class SwipeListView extends ListView implements OnScrollListener {
 	 * 
 	 * @param swipeCloseAllItemsWhenMoveList
 	 */
-	public void setSwipeCloseAllItemsWhenMoveList(
-			boolean swipeCloseAllItemsWhenMoveList) {
-		touchListener
-				.setSwipeClosesAllItemsWhenListMoves(swipeCloseAllItemsWhenMoveList);
+	public void setSwipeCloseAllItemsWhenMoveList(boolean swipeCloseAllItemsWhenMoveList) {
+		touchListener.setSwipeClosesAllItemsWhenListMoves(swipeCloseAllItemsWhenMoveList);
 	}
 
 	/**
@@ -988,11 +943,9 @@ public class SwipeListView extends ListView implements OnScrollListener {
 	}
 
 	@Override
-	public void onScroll(AbsListView view, int firstVisibleItem,
-			int visibleItemCount, int totalItemCount) {
+	public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
 		if (isDropDownStyle) {
-			if (currentScrollState == SCROLL_STATE_TOUCH_SCROLL
-					&& currentHeaderStatus != HEADER_STATUS_LOADING) {
+			if (currentScrollState == SCROLL_STATE_TOUCH_SCROLL && currentHeaderStatus != HEADER_STATUS_LOADING) {
 				/**
 				 * when state of ListView is SCROLL_STATE_TOUCH_SCROLL(ListView
 				 * is scrolling and finger is on screen) and header status is
@@ -1011,8 +964,7 @@ public class SwipeListView extends ListView implements OnScrollListener {
 				 */
 				if (firstVisibleItem == 0) {
 					headerImage.setVisibility(View.VISIBLE);
-					int pointBottom = headerOriginalHeight
-							+ headerReleaseMinDistance;
+					int pointBottom = headerOriginalHeight + headerReleaseMinDistance;
 					if (headerLayout.getBottom() >= pointBottom) {
 						setHeaderStatusReleaseToLoad();
 					} else if (headerLayout.getBottom() < pointBottom) {
@@ -1021,8 +973,7 @@ public class SwipeListView extends ListView implements OnScrollListener {
 				} else {
 					setHeaderStatusClickToLoad();
 				}
-			} else if (currentScrollState == SCROLL_STATE_FLING
-					&& firstVisibleItem == 0
+			} else if (currentScrollState == SCROLL_STATE_FLING && firstVisibleItem == 0
 					&& currentHeaderStatus != HEADER_STATUS_LOADING) {
 				/**
 				 * when state of ListView is SCROLL_STATE_FLING(ListView is
@@ -1033,8 +984,7 @@ public class SwipeListView extends ListView implements OnScrollListener {
 				 */
 				setSecondPositionVisible();
 				hasReachedTop = true;
-			} else if (currentScrollState == SCROLL_STATE_FLING
-					&& hasReachedTop) {
+			} else if (currentScrollState == SCROLL_STATE_FLING && hasReachedTop) {
 				/**
 				 * when state of ListView is SCROLL_STATE_FLING(ListView is
 				 * scrolling but finger has leave screen) and hasReachedTop is
@@ -1048,14 +998,12 @@ public class SwipeListView extends ListView implements OnScrollListener {
 		// if isOnBottomStyle and isAutoLoadOnBottom and hasMore, then call
 		// onBottom function auto
 		if (isOnBottomStyle && isAutoLoadOnBottom && hasMore) {
-			if (firstVisibleItem > 0 && totalItemCount > 0
-					&& (firstVisibleItem + visibleItemCount == totalItemCount)) {
+			if (firstVisibleItem > 0 && totalItemCount > 0 && (firstVisibleItem + visibleItemCount == totalItemCount)) {
 				onBottom();
 			}
 		}
 		if (onScrollListener != null) {
-			onScrollListener.onScroll(view, firstVisibleItem, visibleItemCount,
-					totalItemCount);
+			onScrollListener.onScroll(view, firstVisibleItem, visibleItemCount, totalItemCount);
 		}
 	}
 
@@ -1079,8 +1027,7 @@ public class SwipeListView extends ListView implements OnScrollListener {
 	 * call onBottomComplete at the same time.
 	 */
 	public void onDropDown() {
-		if (currentHeaderStatus != HEADER_STATUS_LOADING && isDropDownStyle
-				&& onDropDownListener != null) {
+		if (currentHeaderStatus != HEADER_STATUS_LOADING && isDropDownStyle && onDropDownListener != null) {
 			onDropDownBegin();
 			onDropDownListener.onDropDown();
 		}
@@ -1192,8 +1139,7 @@ public class SwipeListView extends ListView implements OnScrollListener {
 	 * layout
 	 */
 	public void setSecondPositionVisible() {
-		if (getAdapter() != null && getAdapter().getCount() > 0
-				&& getFirstVisiblePosition() == 0) {
+		if (getAdapter() != null && getAdapter().getCount() > 0 && getFirstVisiblePosition() == 0) {
 			setSelection(1);
 		}
 	}
@@ -1289,8 +1235,7 @@ public class SwipeListView extends ListView implements OnScrollListener {
 	 */
 	public void setHeaderDefaultText(String headerDefaultText) {
 		this.headerDefaultText = headerDefaultText;
-		if (headerText != null
-				&& currentHeaderStatus == HEADER_STATUS_CLICK_TO_LOAD) {
+		if (headerText != null && currentHeaderStatus == HEADER_STATUS_CLICK_TO_LOAD) {
 			headerText.setText(headerDefaultText);
 		}
 	}
@@ -1514,12 +1459,10 @@ public class SwipeListView extends ListView implements OnScrollListener {
 		for (int i = 0; i < pointerCount; i++) {
 			if (currentHeaderStatus == HEADER_STATUS_DROP_DOWN_TO_LOAD
 					|| currentHeaderStatus == HEADER_STATUS_RELEASE_TO_LOAD) {
-				headerLayout
-						.setPadding(
-								headerLayout.getPaddingLeft(),
-								(int) (((ev.getHistoricalY(i) - actionDownPointY) - headerOriginalHeight) / headerPaddingTopRate),
-								headerLayout.getPaddingRight(),
-								headerLayout.getPaddingBottom());
+				headerLayout.setPadding(headerLayout.getPaddingLeft(),
+						(int) (((ev.getHistoricalY(i) - actionDownPointY) - headerOriginalHeight)
+								/ headerPaddingTopRate),
+						headerLayout.getPaddingRight(), headerLayout.getPaddingBottom());
 			}
 		}
 	}
@@ -1528,8 +1471,7 @@ public class SwipeListView extends ListView implements OnScrollListener {
 	 * reset header padding
 	 */
 	private void resetHeaderPadding() {
-		headerLayout.setPadding(headerLayout.getPaddingLeft(),
-				headerOriginalTopPadding, headerLayout.getPaddingRight(),
+		headerLayout.setPadding(headerLayout.getPaddingLeft(), headerOriginalTopPadding, headerLayout.getPaddingRight(),
 				headerLayout.getPaddingBottom());
 	}
 
@@ -1541,19 +1483,16 @@ public class SwipeListView extends ListView implements OnScrollListener {
 	private void measureHeaderLayout(View child) {
 		ViewGroup.LayoutParams p = child.getLayoutParams();
 		if (p == null) {
-			p = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
-					ViewGroup.LayoutParams.WRAP_CONTENT);
+			p = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 		}
 
 		int childWidthSpec = ViewGroup.getChildMeasureSpec(0, 0, p.width);
 		int lpHeight = p.height;
 		int childHeightSpec;
 		if (lpHeight > 0) {
-			childHeightSpec = MeasureSpec.makeMeasureSpec(lpHeight,
-					MeasureSpec.EXACTLY);
+			childHeightSpec = MeasureSpec.makeMeasureSpec(lpHeight, MeasureSpec.EXACTLY);
 		} else {
-			childHeightSpec = MeasureSpec.makeMeasureSpec(0,
-					MeasureSpec.UNSPECIFIED);
+			childHeightSpec = MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED);
 		}
 		child.measure(childWidthSpec, childHeightSpec);
 	}
@@ -1587,8 +1526,7 @@ public class SwipeListView extends ListView implements OnScrollListener {
 			 * header layout.</li>
 			 * </ul>
 			 */
-			if (getFirstVisiblePosition() == 0
-					&& currentHeaderStatus != HEADER_STATUS_LOADING) {
+			if (getFirstVisiblePosition() == 0 && currentHeaderStatus != HEADER_STATUS_LOADING) {
 				switch (currentHeaderStatus) {
 				case HEADER_STATUS_RELEASE_TO_LOAD:
 					onDropDown();

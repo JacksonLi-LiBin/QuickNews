@@ -1,7 +1,8 @@
 
 package com.lb.quicknews.wedget.viewimage.SliderTypes;
 
-import android.R;
+import com.lb.quicknews.R;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;

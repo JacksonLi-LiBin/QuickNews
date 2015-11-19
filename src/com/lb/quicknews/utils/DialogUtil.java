@@ -1,6 +1,7 @@
 package com.lb.quicknews.utils;
 
-import android.R;
+import com.lb.quicknews.R;
+
 import android.app.Dialog;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,13 +13,14 @@ import android.widget.RelativeLayout;
  * Created by Administrator on 2015/11/17 0017.
  */
 public class DialogUtil {
-    public static Dialog createLoadingDialog(Context context) {
-        LayoutInflater inflater = LayoutInflater.from(context);
-        View v = inflater.inflate(R.layout.progress_bar, null);
-        RelativeLayout layout = (RelativeLayout) v.findViewById(R.id.layout);
-        Dialog loadingDialog = new Dialog(context, R.style.loading_dialog_tran);
-        loadingDialog.setCanceledOnTouchOutside(false);
-        loadingDialog.setContentView(layout, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT));
-        return loadingDialog;
-    }
+	public static Dialog createLoadingDialog(Context context) {
+		LayoutInflater inflater = LayoutInflater.from(context);
+		View v = inflater.inflate(R.layout.progress_bar, null);
+		RelativeLayout layout = (RelativeLayout) v.findViewById(R.id.layout);
+		Dialog loadingDialog = new Dialog(context, R.style.loading_dialog_tran);
+		loadingDialog.setCanceledOnTouchOutside(false);
+		loadingDialog.setContentView(layout, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
+				LinearLayout.LayoutParams.MATCH_PARENT));
+		return loadingDialog;
+	}
 }

@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
 @EBean
-public class NewAdapter extends BaseAdapter {
+public class NewsAdapter extends BaseAdapter {
 	public List<NewsModle> lists = new ArrayList<NewsModle>();
 	private String currentItem;
 
@@ -32,9 +32,11 @@ public class NewAdapter extends BaseAdapter {
 		lists.clear();
 		notifyDataSetChanged();
 	}
-public void currentItem(String item){
-this.currentItem=item;	
-}
+
+	public void currentItem(String item) {
+		this.currentItem = item;
+	}
+
 	@Override
 	public int getCount() {
 		return lists.size();

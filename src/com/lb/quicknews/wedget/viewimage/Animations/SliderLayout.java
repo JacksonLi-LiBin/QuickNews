@@ -5,6 +5,7 @@ import java.lang.reflect.Field;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import com.lb.quicknews.R;
 import com.lb.quicknews.wedget.viewimage.Indicators.PagerIndicator;
 import com.lb.quicknews.wedget.viewimage.SliderTypes.BaseSliderView;
 import com.lb.quicknews.wedget.viewimage.Transformers.AccordionTransformer;
@@ -29,7 +30,6 @@ import com.lb.quicknews.wedget.viewimage.Tricks.InfinitePagerAdapter;
 import com.lb.quicknews.wedget.viewimage.Tricks.InfiniteViewPager;
 import com.lb.quicknews.wedget.viewimage.Tricks.ViewPagerEx;
 
-import android.R;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.Message;

@@ -3,10 +3,10 @@ package com.lb.quicknews.wedget.viewimage.Indicators;
 
 import java.util.ArrayList;
 
+import com.lb.quicknews.R;
 import com.lb.quicknews.wedget.viewimage.Tricks.InfinitePagerAdapter;
 import com.lb.quicknews.wedget.viewimage.Tricks.ViewPagerEx;
 
-import android.R;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.database.DataSetObserver;
