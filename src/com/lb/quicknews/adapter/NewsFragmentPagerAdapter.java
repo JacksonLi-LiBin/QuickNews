@@ -1,28 +1,78 @@
 package com.lb.quicknews.adapter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentTransaction;
+import android.view.ViewGroup;
 
 public class NewsFragmentPagerAdapter extends FragmentPagerAdapter {
+	private List<Fragment> fragments = new ArrayList<Fragment>();
+	private final FragmentManager fm;
 
 	public NewsFragmentPagerAdapter(FragmentManager fm) {
 		super(fm);
-		// TODO Auto-generated constructor stub
+		this.fm = fm;
+	}
+
+	public NewsFragmentPagerAdapter(FragmentManager fm,
+			ArrayList<Fragment> fragments) {
+		super(fm);
+		this.fm = fm;
+		this.fragments = fragments;
+	}
+
+	public void appendList(ArrayList<Fragment> fragment) {
+		fragments.clear();
+		if (!fragments.containsAll(fragment) && fragment.size() > 0) {
+			fragments.addAll(fragment);
+		}
+		notifyDataSetChanged();
 	}
 
 	@Override
 	public Fragment getItem(int arg0) {
-		// TODO Auto-generated method stub
-		return null;
+		return fragments.get(arg0);
 	}
 
 	@Override
 	public int getCount() {
-		// TODO Auto-generated method stub
-		return 0;
+		return fragments.size();
 	}
 
+	@Override
+	public int getItemPosition(Object object) {
+		return POSITION_NONE;
+	}
+
+	public void setFragments(ArrayList<Fragment> fragments) {
+		if (this.fragments != null) {
+			FragmentTransaction ft = fm.beginTransaction();
+			for (Fragment f : this.fragments) {
+				ft.remove(f);
+			}
+			ft.commit();
+			ft = null;
+			fm.executePendingTransactions();
+		}
+		this.fragments = fragments;
+		notifyDataSetChanged();
+	}
+
+	@Override
+	public void destroyItem(ViewGroup container, int position, Object object) {
+		// 这里Destroy的是Fragment的师徒层次，并不是Destroy Fragment对象
+	}
+
+	@Override
+	public Object instantiateItem(ViewGroup container, int position) {
+		if (fragments.size() <= position) {
+			position = position % fragments.size();
+		}
+		Object obj = super.instantiateItem(container, position);
+		return obj;
+	}
 }

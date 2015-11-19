@@ -21,6 +21,11 @@
         <item name="android:backgroundDimEnabled">false</item>
     </style>
 
+    <style name="item_title">
+        <item name="android:textSize">16.0sp</item>
+        <item name="android:textColor">@color/item_title</item>
+    </style>
+
     <style name="item_content">
         <item name="android:textSize">12sp</item>
         <item name="android:textColor">@color/ss_comment_from</item>
@@ -61,6 +66,30 @@
         <item name="android:drawablePadding">15.0dp</item>
         <item name="android:paddingLeft">35.0dp</item>
         <item name="android:gravity">left|center_vertical</item>
+    </style>
+    <!-- main tab column -->
+    <style name="top_category_scroll_view_item_text">
+        <item name="android:textSize">16.0sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <!-- refresh listview progress bar -->
+    <style name="drop_down_list_footer_progress_bar_style">
+        <item name="android:minHeight">@dimen/drop_down_list_footer_progress_bar_height</item>
+        <item name="android:maxHeight">@dimen/drop_down_list_footer_progress_bar_height</item>
+    </style>
+
+    <style name="drop_down_list_footer_font_style">
+        <item name="android:textColor">@color/drop_down_list_footer_font_color</item>
+        <item name="android:textSize">@dimen/drop_down_list_footer_font_size</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+    </style>
+
+    <style name="item_image">
+        <item name="android:background">@drawable/small_image_holder_list_page</item>
+        <item name="android:layout_width">@dimen/item_image_width</item>
+        <item name="android:layout_height">@dimen/item_image_height</item>
+        <item name="android:scaleType">centerCrop</item>
     </style>
 
 </resources>

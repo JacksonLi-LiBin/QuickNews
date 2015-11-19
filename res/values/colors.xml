@@ -35,5 +35,13 @@
     <color name="activity_bg_color">#fff5f5f5</color>
     <color name="main_red">#ffcc3131</color>
     <color name="gray">#ff808080</color>
-
+    <!-- drop down list header font color -->
+    <color name="drop_down_list_header_font_color">#000000</color>
+    <!-- drop down list header second font color -->
+    <color name="drop_down_list_header_second_font_color">#000000</color>
+    <!-- drop down list footer font color -->
+    <color name="drop_down_list_footer_font_color">#A2A3A2</color>
+    <!-- listview风格线 -->
+    <color name="list_divider">#f1f1e8</color>
+<color name="image_loading_bg">#ffefefef</color>
 </resources>
