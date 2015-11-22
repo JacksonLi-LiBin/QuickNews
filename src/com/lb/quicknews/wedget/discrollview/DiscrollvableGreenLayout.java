@@ -2,8 +2,8 @@
 package com.lb.quicknews.wedget.discrollview;
 
 import com.lb.quicknews.R;
+import com.nineoldandroids.animation.ArgbEvaluator;
 
-import android.animation.ArgbEvaluator;
 import android.content.Context;
 import android.graphics.Color;
 import android.util.AttributeSet;

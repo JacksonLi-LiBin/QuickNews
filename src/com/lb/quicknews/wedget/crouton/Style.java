@@ -15,11 +15,11 @@
  */
 
 package com.lb.quicknews.wedget.crouton;
+
 import android.graphics.drawable.Drawable;
 import android.view.Gravity;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.ImageView;
-
 
 /** The style for a {@link Crouton}. */
 public class Style {

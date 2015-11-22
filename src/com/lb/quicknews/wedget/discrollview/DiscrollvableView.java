@@ -1,7 +1,8 @@
 
 package com.lb.quicknews.wedget.discrollview;
 
-import android.animation.ArgbEvaluator;
+import com.nineoldandroids.animation.ArgbEvaluator;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;

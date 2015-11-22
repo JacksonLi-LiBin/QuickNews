@@ -34,5 +34,6 @@
     <string name="drop_down_list_footer_no_more_text">无更多信息</string>
     <string name="image_content">Image</string>
     <!-- 下拉刷新  end -->
+    <string name="not_network">暂无网络</string>
 
 </resources>

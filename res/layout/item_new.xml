@@ -91,9 +91,33 @@
                     <ImageView
                         android:id="@+id/item_iamge_0"
                         style="@style/item_image" />
+
+                    <View style="@style/item_image_gap" />
+
+                    <ImageView
+                        android:id="@+id/item_image_1"
+                        style="@style/item_image" />
+
+                    <View style="@style/item_image_gap" />
+
+                    <ImageView
+                        android:id="@+id/item_image_2"
+                        style="@style/item_image" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
+
+        <View
+            android:id="@+id/item_divider"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/divider_day" />
     </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#ffdddddd" />
 
 </LinearLayout>

@@ -7,6 +7,8 @@ import org.androidannotations.annotations.EBean;
 import org.androidannotations.annotations.RootContext;
 
 import com.lb.quicknews.bean.NewsModle;
+import com.lb.quicknews.view.NewItemView;
+import com.lb.quicknews.view.NewItemView_;
 
 import android.content.Context;
 import android.view.View;
@@ -54,8 +56,17 @@ public class NewsAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		// TODO Auto-generated method stub
-		return null;
+		NewItemView newItemView;
+		if (convertView == null) {
+			newItemView = NewItemView_.build(context);
+		} else {
+			newItemView = (NewItemView) convertView;
+		}
+		NewsModle newsModle = lists.get(position);
+		if (newsModle.getImagesModle() == null) {
+			newItemView.setTexts(newsModle.getTitle(), newsModle.getDigest(), newsModle.getImgsrc(), currentItem);
+		}
+		return newItemView;
 	}
 
 }

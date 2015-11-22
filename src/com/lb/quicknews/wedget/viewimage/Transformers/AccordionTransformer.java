@@ -3,9 +3,6 @@ package com.lb.quicknews.wedget.viewimage.Transformers;
 
 import com.nineoldandroids.view.ViewHelper;
 
-/**
- * Created by daimajia on 14-5-29.
- */
 import android.view.View;
 
 public class AccordionTransformer extends BaseTransformer {

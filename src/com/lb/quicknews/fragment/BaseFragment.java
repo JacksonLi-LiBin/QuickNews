@@ -8,7 +8,7 @@ import android.support.v4.app.Fragment;
 import android.view.View;
 
 public class BaseFragment extends Fragment {
-	private View mView;
+	public View mView;
 	// 当前页
 	public int currentPage = 1;
 
@@ -87,8 +87,7 @@ public class BaseFragment extends Fragment {
 	}
 
 	public String getVideoUrl(String index, String videoId) {
-		String urlString = Url.Video + videoId + Url.VideoCenter + index
-				+ Url.videoEndUrl;
+		String urlString = Url.Video + videoId + Url.VideoCenter + index + Url.videoEndUrl;
 		return urlString;
 	}
 
