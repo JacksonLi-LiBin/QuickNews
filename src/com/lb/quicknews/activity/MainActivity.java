@@ -9,6 +9,18 @@ import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
+import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.view.Gravity;
+import android.view.View;
+import android.view.ViewGroup.LayoutParams;
+import android.view.WindowManager;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
 import com.lb.quicknews.App;
 import com.lb.quicknews.R;
 import com.lb.quicknews.adapter.NewsFragmentPagerAdapter;
@@ -21,18 +33,6 @@ import com.lb.quicknews.view.LeftView;
 import com.lb.quicknews.view.LeftView_;
 import com.lb.quicknews.wedget.ColumnHorizontalScrollView;
 import com.lb.quicknews.wedget.slidingmenu.SlidingMenu;
-
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
-import android.support.v4.view.ViewPager.OnPageChangeListener;
-import android.view.Gravity;
-import android.view.View;
-import android.view.ViewGroup.LayoutParams;
-import android.view.WindowManager;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 @EActivity(R.layout.activity_main)
 public class MainActivity extends BaseActivity {

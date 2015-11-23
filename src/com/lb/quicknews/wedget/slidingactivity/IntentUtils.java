@@ -7,8 +7,6 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-import com.lb.quicknews.activity.BaseActivity;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -17,6 +15,8 @@ import android.graphics.Canvas;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.View;
+
+import com.lb.quicknews.activity.BaseActivity;
 
 /**
  * Created by chenjishi on 14-3-19.

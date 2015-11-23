@@ -6,10 +6,10 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import android.content.Context;
+
 import com.lb.quicknews.bean.ImagesModle;
 import com.lb.quicknews.bean.NewsModle;
-
-import android.content.Context;
 
 public class NewsListJson extends JsonPacket {
 	public static NewsListJson newsListJson;

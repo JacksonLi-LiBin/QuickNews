@@ -6,14 +6,14 @@ import java.util.List;
 import org.androidannotations.annotations.EBean;
 import org.androidannotations.annotations.RootContext;
 
-import com.lb.quicknews.bean.NewsModle;
-import com.lb.quicknews.view.NewItemView;
-import com.lb.quicknews.view.NewItemView_;
-
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+
+import com.lb.quicknews.bean.NewsModle;
+import com.lb.quicknews.view.NewItemView;
+import com.lb.quicknews.view.NewItemView_;
 
 @EBean
 public class NewsAdapter extends BaseAdapter {

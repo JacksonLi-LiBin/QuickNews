@@ -3,15 +3,15 @@ package com.lb.quicknews.wedget.viewimage.SliderTypes;
 
 import java.io.File;
 
-import com.lb.quicknews.R;
-import com.squareup.picasso.Callback;
-import com.squareup.picasso.Picasso;
-import com.squareup.picasso.RequestCreator;
-
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+
+import com.lb.quicknews.R;
+import com.squareup.picasso.Callback;
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.RequestCreator;
 
 /**
  * When you want to make your own slider view, you must extends from this class.

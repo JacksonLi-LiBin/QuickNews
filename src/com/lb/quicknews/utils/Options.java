@@ -1,11 +1,11 @@
 package com.lb.quicknews.utils;
 
+import android.graphics.Bitmap;
+
 import com.lb.quicknews.R;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
-
-import android.graphics.Bitmap;
 
 public class Options {
 	// 新闻列表中用到的图片加载配置

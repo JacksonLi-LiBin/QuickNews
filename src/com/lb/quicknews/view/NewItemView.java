@@ -5,18 +5,18 @@ import java.util.List;
 import org.androidannotations.annotations.EViewGroup;
 import org.androidannotations.annotations.ViewById;
 
-import com.lb.quicknews.R;
-import com.lb.quicknews.bean.NewsModle;
-import com.lb.quicknews.utils.Options;
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
-
 import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.lb.quicknews.R;
+import com.lb.quicknews.bean.NewsModle;
+import com.lb.quicknews.utils.Options;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 @EViewGroup(R.layout.item_new)
 public class NewItemView extends LinearLayout {

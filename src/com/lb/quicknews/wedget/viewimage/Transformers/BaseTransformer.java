@@ -4,11 +4,11 @@ package com.lb.quicknews.wedget.viewimage.Transformers;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import android.view.View;
+
 import com.lb.quicknews.wedget.viewimage.Animations.BaseAnimationInterface;
 import com.lb.quicknews.wedget.viewimage.Tricks.ViewPagerEx;
 import com.nineoldandroids.view.ViewHelper;
-
-import android.view.View;
 
 /**
  * This is all transformers father. BaseTransformer implement

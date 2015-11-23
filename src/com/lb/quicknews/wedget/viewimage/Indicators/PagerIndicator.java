@@ -3,10 +3,6 @@ package com.lb.quicknews.wedget.viewimage.Indicators;
 
 import java.util.ArrayList;
 
-import com.lb.quicknews.R;
-import com.lb.quicknews.wedget.viewimage.Tricks.InfinitePagerAdapter;
-import com.lb.quicknews.wedget.viewimage.Tricks.ViewPagerEx;
-
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.database.DataSetObserver;
@@ -20,6 +16,10 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+
+import com.lb.quicknews.R;
+import com.lb.quicknews.wedget.viewimage.Tricks.InfinitePagerAdapter;
+import com.lb.quicknews.wedget.viewimage.Tricks.ViewPagerEx;
 
 /**
  * Pager Indicator.

@@ -1,13 +1,13 @@
 
 package com.lb.quicknews.wedget.viewimage.Tricks;
 
-import com.lb.quicknews.wedget.viewimage.Animations.SliderAdapter;
-
 import android.os.Parcelable;
 import android.support.v4.view.PagerAdapter;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.lb.quicknews.wedget.viewimage.Animations.SliderAdapter;
 
 /**
  * A PagerAdapter that wraps around another PagerAdapter to handle paging

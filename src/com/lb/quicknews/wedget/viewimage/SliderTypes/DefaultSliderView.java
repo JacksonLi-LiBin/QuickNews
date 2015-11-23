@@ -1,12 +1,12 @@
 
 package com.lb.quicknews.wedget.viewimage.SliderTypes;
 
-import com.lb.quicknews.R;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
+
+import com.lb.quicknews.R;
 
 /**
  * a simple slider view, which just show an image. If you want to make your own

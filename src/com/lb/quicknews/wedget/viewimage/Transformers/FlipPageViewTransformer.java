@@ -1,11 +1,11 @@
 
 package com.lb.quicknews.wedget.viewimage.Transformers;
 
-import com.lb.quicknews.wedget.viewimage.Tricks.ViewPagerEx;
-import com.nineoldandroids.view.ViewHelper;
-
 import android.os.Build;
 import android.view.View;
+
+import com.lb.quicknews.wedget.viewimage.Tricks.ViewPagerEx;
+import com.nineoldandroids.view.ViewHelper;
 
 public class FlipPageViewTransformer extends BaseTransformer {
 

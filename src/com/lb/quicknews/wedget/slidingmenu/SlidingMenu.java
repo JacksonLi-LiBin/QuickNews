@@ -2,9 +2,6 @@ package com.lb.quicknews.wedget.slidingmenu;
 
 import java.lang.reflect.Method;
 
-import com.lb.quicknews.R;
-import com.lb.quicknews.wedget.slidingmenu.CustomViewAbove.OnPageChangeListener;
-
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -29,6 +26,9 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
+
+import com.lb.quicknews.R;
+import com.lb.quicknews.wedget.slidingmenu.CustomViewAbove.OnPageChangeListener;
 
 public class SlidingMenu extends RelativeLayout {
 

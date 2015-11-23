@@ -1,11 +1,11 @@
 
 package com.lb.quicknews.wedget.viewimage.Transformers;
 
-import com.nineoldandroids.view.ViewHelper;
-
 import android.graphics.Camera;
 import android.graphics.Matrix;
 import android.view.View;
+
+import com.nineoldandroids.view.ViewHelper;
 
 public class TabletTransformer extends BaseTransformer {
 

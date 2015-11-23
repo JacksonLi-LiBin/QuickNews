@@ -1,8 +1,6 @@
 
 package com.lb.quicknews.wedget.discrollview;
 
-import com.lb.quicknews.R;
-
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -14,6 +12,8 @@ import android.graphics.PathMeasure;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
+
+import com.lb.quicknews.R;
 
 /**
  *

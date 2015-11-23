@@ -39,7 +39,8 @@ import android.view.View.OnClickListener;
 import android.widget.ProgressBar;
 
 @EFragment(R.layout.fragment_news)
-public class NewsFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener, OnSliderClickListener {
+public class NewsFragment extends BaseFragment implements
+		SwipeRefreshLayout.OnRefreshListener, OnSliderClickListener {
 	SliderLayout mDemoSlider;
 	@ViewById(R.id.swipe_container)
 	SwipeRefreshLayout swipeLayout;
@@ -73,10 +74,12 @@ public class NewsFragment extends BaseFragment implements SwipeRefreshLayout.OnR
 		swipeLayout.setOnRefreshListener(this);
 		InitView.getInstance().initSwipeRefreshLayout(swipeLayout);
 		InitView.getInstance().initListView(mListView, getActivity());
-		View headView = LayoutInflater.from(getActivity()).inflate(R.layout.head_item, null);
+		View headView = LayoutInflater.from(getActivity()).inflate(
+				R.layout.head_item, null);
 		mDemoSlider = (SliderLayout) headView.findViewById(R.id.slider);
 		mListView.addHeaderView(headView);
-		AnimationAdapter animationAdapter = new CardsAnimationAdapter(newsAdapter);
+		AnimationAdapter animationAdapter = new CardsAnimationAdapter(
+				newsAdapter);
 		animationAdapter.setAbsListView(mListView);
 		mListView.setAdapter(animationAdapter);
 		loadData(getNewUrl(index + ""));
@@ -105,8 +108,8 @@ public class NewsFragment extends BaseFragment implements SwipeRefreshLayout.OnR
 
 	@Override
 	public void onSliderClick(BaseSliderView slider) {
-NewsModle newsModle=newHashMap.get(slider.getUrl());
-
+		NewsModle newsModle = newHashMap.get(slider.getUrl());
+		enterDetailActivity(newsModle);
 	}
 
 	private void loadData(String url) {
@@ -116,7 +119,8 @@ NewsModle newsModle=newHashMap.get(slider.getUrl());
 			mListView.onBottomComplete();
 			mProgressBar.setVisibility(View.GONE);
 			getMyActivity().showShortToast(getString(R.string.not_network));
-			String result = getMyActivity().getCacheStr("NewsFragment" + currentPage);
+			String result = getMyActivity().getCacheStr(
+					"NewsFragment" + currentPage);
 			if (!StringUtils.isEmpty(result)) {
 				getResult(result);
 			}
@@ -148,7 +152,8 @@ NewsModle newsModle=newHashMap.get(slider.getUrl());
 		}
 		mProgressBar.setVisibility(View.GONE);
 		swipeLayout.setRefreshing(false);
-		List<NewsModle> list = NewsListJson.getInstance(getActivity()).readJsonNewsModles(result, Url.TopId);
+		List<NewsModle> list = NewsListJson.getInstance(getActivity())
+				.readJsonNewsModles(result, Url.TopId);
 		if (index == 0 && list.size() >= 4) {
 			initSliderLayout(list);
 		} else {
@@ -168,13 +173,17 @@ NewsModle newsModle=newHashMap.get(slider.getUrl());
 		if (!isNullString(newModles.get(3).getImgsrc()))
 			newHashMap.put(newModles.get(3).getImgsrc(), newModles.get(3));
 		if (!isNullString(newModles.get(0).getImgsrc()))
-			url_maps.put(newModles.get(0).getTitle(), newModles.get(0).getImgsrc());
+			url_maps.put(newModles.get(0).getTitle(), newModles.get(0)
+					.getImgsrc());
 		if (!isNullString(newModles.get(1).getImgsrc()))
-			url_maps.put(newModles.get(1).getTitle(), newModles.get(1).getImgsrc());
+			url_maps.put(newModles.get(1).getTitle(), newModles.get(1)
+					.getImgsrc());
 		if (!isNullString(newModles.get(2).getImgsrc()))
-			url_maps.put(newModles.get(2).getTitle(), newModles.get(2).getImgsrc());
+			url_maps.put(newModles.get(2).getTitle(), newModles.get(2)
+					.getImgsrc());
 		if (!isNullString(newModles.get(3).getImgsrc()))
-			url_maps.put(newModles.get(3).getTitle(), newModles.get(3).getImgsrc());
+			url_maps.put(newModles.get(3).getTitle(), newModles.get(3)
+					.getImgsrc());
 		for (String name : url_maps.keySet()) {
 			TextSliderView textSliderView = new TextSliderView(getActivity());
 			textSliderView.setOnSliderClickListener(this);
@@ -183,17 +192,19 @@ NewsModle newsModle=newHashMap.get(slider.getUrl());
 			mDemoSlider.addSlider(textSliderView);
 		}
 		mDemoSlider.setPresetTransformer(SliderLayout.Transformer.Accordion);
-		mDemoSlider.setPresetIndicator(SliderLayout.PresetIndicators.Right_Bottom);
+		mDemoSlider
+				.setPresetIndicator(SliderLayout.PresetIndicators.Right_Bottom);
 		mDemoSlider.setCustomAnimation(new DescriptionAnimation());
 		newsAdapter.appendList(newModles);
 	}
-	
-	public void enterDetailActivity(NewsModle newsModle){
-		Bundle bundle=new Bundle();
+
+	public void enterDetailActivity(NewsModle newsModle) {
+		Bundle bundle = new Bundle();
 		bundle.putSerializable("newsModle", newsModle);
 		Class<?> class1;
-		if(newsModle.getImagesModle()!=null&&newsModle.getImagesModle().getImgList().size()>1){
-			
+		if (newsModle.getImagesModle() != null
+				&& newsModle.getImagesModle().getImgList().size() > 1) {
+			// class1=imaged
 		}
 	}
 }

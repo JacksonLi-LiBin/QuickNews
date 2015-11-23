@@ -3,14 +3,6 @@ package com.lb.quicknews.activity;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
-import com.lb.quicknews.http.HttpUtil;
-import com.lb.quicknews.http.Url;
-import com.lb.quicknews.utils.ACache;
-import com.lb.quicknews.utils.DialogUtil;
-import com.lb.quicknews.utils.StringUtils;
-import com.lb.quicknews.wedget.slidingactivity.IntentUtils;
-import com.lb.quicknews.wedget.slidingactivity.SlidingActivity;
-
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,6 +10,14 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.Toast;
+
+import com.lb.quicknews.http.HttpUtil;
+import com.lb.quicknews.http.Url;
+import com.lb.quicknews.utils.ACache;
+import com.lb.quicknews.utils.DialogUtil;
+import com.lb.quicknews.utils.StringUtils;
+import com.lb.quicknews.wedget.slidingactivity.IntentUtils;
+import com.lb.quicknews.wedget.slidingactivity.SlidingActivity;
 
 /**
  * Created by Administrator on 2015/11/17 0017.

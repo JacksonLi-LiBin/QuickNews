@@ -1,9 +1,9 @@
 
 package com.lb.quicknews.wedget.viewimage.Transformers;
 
-import com.nineoldandroids.view.ViewHelper;
-
 import android.view.View;
+
+import com.nineoldandroids.view.ViewHelper;
 
 /**
  * Created by realandylawton on 11/22/13.

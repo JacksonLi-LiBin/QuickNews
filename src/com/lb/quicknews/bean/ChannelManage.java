@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import android.database.SQLException;
+
 import com.lb.quicknews.dao.ChannelDao;
 import com.lb.quicknews.db.SQLHelper;
-
-import android.database.SQLException;
 
 public class ChannelManage {
 	public static ChannelManage channelManage;

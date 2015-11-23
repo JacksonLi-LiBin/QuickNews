@@ -1,12 +1,12 @@
 package com.lb.quicknews.adapter;
 
-import com.nhaarman.listviewanimations.appearance.AnimationAdapter;
-import com.nineoldandroids.animation.Animator;
-import com.nineoldandroids.animation.ObjectAnimator;
-
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+
+import com.nhaarman.listviewanimations.appearance.AnimationAdapter;
+import com.nineoldandroids.animation.Animator;
+import com.nineoldandroids.animation.ObjectAnimator;
 
 public class CardsAnimationAdapter extends AnimationAdapter {
 	private final float mTrnslationY = 400;
