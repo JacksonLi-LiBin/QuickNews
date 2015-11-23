@@ -11,6 +11,15 @@ import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.ViewById;
 
+import android.app.Activity;
+import android.os.Bundle;
+import android.os.Handler;
+import android.support.annotation.UiThread;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.ProgressBar;
+
 import com.lb.quicknews.R;
 import com.lb.quicknews.adapter.CardsAnimationAdapter;
 import com.lb.quicknews.adapter.NewsAdapter;
@@ -27,16 +36,6 @@ import com.lb.quicknews.wedget.viewimage.SliderTypes.BaseSliderView;
 import com.lb.quicknews.wedget.viewimage.SliderTypes.BaseSliderView.OnSliderClickListener;
 import com.lb.quicknews.wedget.viewimage.SliderTypes.TextSliderView;
 import com.nhaarman.listviewanimations.appearance.AnimationAdapter;
-
-import android.app.Activity;
-import android.os.Bundle;
-import android.os.Handler;
-import android.support.annotation.UiThread;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.ProgressBar;
 
 @EFragment(R.layout.fragment_news)
 public class NewsFragment extends BaseFragment implements
