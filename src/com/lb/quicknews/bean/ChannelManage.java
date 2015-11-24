@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import android.content.ContentValues;
 import android.database.SQLException;
 
 import com.lb.quicknews.dao.ChannelDao;
@@ -72,14 +73,14 @@ public class ChannelManage {
 		saveOtherChannel(defaultOtherChannels);
 	}
 
-	private void deleteAllChannel() {
+	public void deleteAllChannel() {
 		channelDao.clearFeedTable();
 	}
 
 	/**
 	 * 保存用户频道到数据库
 	 */
-	private void saveUserChannel(List<ChannelItem> userList) {
+	public void saveUserChannel(List<ChannelItem> userList) {
 		for (int i = 0; i < userList.size(); i++) {
 			ChannelItem channelItem = userList.get(i);
 			channelItem.setOrderId(i);
@@ -88,10 +89,20 @@ public class ChannelManage {
 		}
 	}
 
+	public void updateChannel(ChannelItem channelItem, String selected) {
+		ContentValues values = new ContentValues();
+		values.put("selected", selected);
+		values.put("id", channelItem.getId());
+		values.put("name", channelItem.getName());
+		values.put("orderId", channelItem.getOrderId());
+		channelDao.updateCache(values, "name = ?",
+				new String[] { channelItem.getName() });
+	}
+
 	/**
 	 * 保存其他频道到数据库
 	 */
-	private void saveOtherChannel(List<ChannelItem> otherList) {
+	public void saveOtherChannel(List<ChannelItem> otherList) {
 		for (int i = 0; i < otherList.size(); i++) {
 			ChannelItem channelItem = otherList.get(i);
 			channelItem.setOrderId(i);

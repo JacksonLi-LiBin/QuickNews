@@ -9,6 +9,7 @@ import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
@@ -26,7 +27,38 @@ import com.lb.quicknews.R;
 import com.lb.quicknews.adapter.NewsFragmentPagerAdapter;
 import com.lb.quicknews.bean.ChannelItem;
 import com.lb.quicknews.bean.ChannelManage;
+import com.lb.quicknews.fragment.BaoxueFragment_;
+import com.lb.quicknews.fragment.BeijingFragment_;
+import com.lb.quicknews.fragment.BokeFragment_;
+import com.lb.quicknews.fragment.CBAFragment_;
+import com.lb.quicknews.fragment.CaijingFragment_;
+import com.lb.quicknews.fragment.CaipiaoFragment_;
+import com.lb.quicknews.fragment.DiantaiFragment_;
+import com.lb.quicknews.fragment.DianyingFragment_;
+import com.lb.quicknews.fragment.FangchanFragment_;
+import com.lb.quicknews.fragment.FootballFragment_;
+import com.lb.quicknews.fragment.JiajuFragment_;
+import com.lb.quicknews.fragment.JiaoyuFragment_;
+import com.lb.quicknews.fragment.JingxuanFragment_;
+import com.lb.quicknews.fragment.JunshiFragment_;
+import com.lb.quicknews.fragment.KejiFragment_;
+import com.lb.quicknews.fragment.LuntanFragment_;
+import com.lb.quicknews.fragment.LvyouFragment_;
+import com.lb.quicknews.fragment.NBAFragment_;
 import com.lb.quicknews.fragment.NewsFragment_;
+import com.lb.quicknews.fragment.QicheFragment_;
+import com.lb.quicknews.fragment.QingganFragment_;
+import com.lb.quicknews.fragment.QinziFragment_;
+import com.lb.quicknews.fragment.ShehuiFragment_;
+import com.lb.quicknews.fragment.ShishangFragment_;
+import com.lb.quicknews.fragment.ShoujiFragment_;
+import com.lb.quicknews.fragment.ShumaFragment_;
+import com.lb.quicknews.fragment.TiyuFragment_;
+import com.lb.quicknews.fragment.TupianFragment_;
+import com.lb.quicknews.fragment.XiaohuaFragment_;
+import com.lb.quicknews.fragment.YidongFragment_;
+import com.lb.quicknews.fragment.YouxiFragment_;
+import com.lb.quicknews.fragment.YuleFragment_;
 import com.lb.quicknews.initview.SlidingMenuView;
 import com.lb.quicknews.utils.BaseTools;
 import com.lb.quicknews.view.LeftView;
@@ -102,15 +134,6 @@ public class MainActivity extends BaseActivity {
 			initColumnData();
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
-	}
-
-	@Click(R.id.top_head)
-	void onMenu(View view) {
-		if (side_drawer.isMenuShowing()) {
-			side_drawer.showContent();
-		} else {
-			side_drawer.showMenu();
 		}
 	}
 
@@ -196,6 +219,68 @@ public class MainActivity extends BaseActivity {
 	private Fragment initFragment(String channelName) {
 		if (channelName.equals("头条")) {
 			newFragment = new NewsFragment_();
+		} else if (channelName.equals("足球")) {
+			newFragment = new FootballFragment_();
+		} else if (channelName.equals("娱乐")) {
+			newFragment = new YuleFragment_();
+		} else if (channelName.equals("体育")) {
+			newFragment = new TiyuFragment_();
+		} else if (channelName.equals("财经")) {
+			newFragment = new CaijingFragment_();
+		} else if (channelName.equals("科技")) {
+			newFragment = new KejiFragment_();
+		} else if (channelName.equals("电影")) {
+			newFragment = new DianyingFragment_();
+		} else if (channelName.equals("汽车")) {
+			newFragment = new QicheFragment_();
+		} else if (channelName.equals("笑话")) {
+			newFragment = new XiaohuaFragment_();
+		} else if (channelName.equals("时尚")) {
+			newFragment = new ShishangFragment_();
+		} else if (channelName.equals("北京")) {
+			newFragment = new BeijingFragment_();
+		} else if (channelName.equals("军事")) {
+			newFragment = new JunshiFragment_();
+		} else if (channelName.equals("房产")) {
+			newFragment = new FangchanFragment_();
+		} else if (channelName.equals("游戏")) {
+			newFragment = new YouxiFragment_();
+		} else if (channelName.equals("情感")) {
+			newFragment = new QingganFragment_();
+		} else if (channelName.equals("精选")) {
+			newFragment = new JingxuanFragment_();
+		} else if (channelName.equals("电台")) {
+			newFragment = new DiantaiFragment_();
+		} else if (channelName.equals("图片")) {
+			newFragment = new TupianFragment_();
+		} else if (channelName.equals("NBA")) {
+			newFragment = new NBAFragment_();
+		} else if (channelName.equals("数码")) {
+			newFragment = new ShumaFragment_();
+		} else if (channelName.equals("移动")) {
+			newFragment = new YidongFragment_();
+		} else if (channelName.equals("彩票")) {
+			newFragment = new CaipiaoFragment_();
+		} else if (channelName.equals("教育")) {
+			newFragment = new JiaoyuFragment_();
+		} else if (channelName.equals("论坛")) {
+			newFragment = new LuntanFragment_();
+		} else if (channelName.equals("旅游")) {
+			newFragment = new LvyouFragment_();
+		} else if (channelName.equals("手机")) {
+			newFragment = new ShoujiFragment_();
+		} else if (channelName.equals("博客")) {
+			newFragment = new BokeFragment_();
+		} else if (channelName.equals("社会")) {
+			newFragment = new ShehuiFragment_();
+		} else if (channelName.equals("家居")) {
+			newFragment = new JiajuFragment_();
+		} else if (channelName.equals("暴雪")) {
+			newFragment = new BaoxueFragment_();
+		} else if (channelName.equals("亲子")) {
+			newFragment = new QinziFragment_();
+		} else if (channelName.equals("CBA")) {
+			newFragment = new CBAFragment_();
 		}
 		return newFragment;
 	}
@@ -241,6 +326,51 @@ public class MainActivity extends BaseActivity {
 				isCheck = false;
 			}
 			checkView.setSelected(isCheck);
+		}
+	}
+
+	@Click(R.id.top_head)
+	void onMenu(View view) {
+		if (side_drawer.isMenuShowing()) {
+			side_drawer.showContent();
+		} else {
+			side_drawer.showMenu();
+		}
+	}
+
+	@Click(R.id.button_more_columns)
+	void onMoreColumns(View view) {
+		openActivityForResult(ChannelActivity_.class, CHANNELREQUEST);
+	}
+
+	@Override
+	public void onBackPressed() {
+		if (side_drawer.isMenuShowing()) {
+			side_drawer.showContent();
+		} else {
+			if (isShowing()) {
+				dismissProcessDialog();
+			} else {
+				if (back_pressed + 3000 > System.currentTimeMillis()) {
+					finish();
+					super.onBackPressed();
+				} else {
+					showCustomToast(getString(R.string.press_again_exit));
+					back_pressed = System.currentTimeMillis();
+				}
+			}
+		}
+	}
+
+	@Override
+	protected void onActivityResult(int arg0, int arg1, Intent arg2) {
+		try {
+			if (isChange) {
+				initColumnData();
+				isChange = false;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 }

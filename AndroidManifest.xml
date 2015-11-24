@@ -60,6 +60,7 @@
         </activity>
         <activity android:name=".activity.VideoPlayActivity_" >
         </activity>
+        <activity android:name=".activity.ChannelActivity_"></activity>
     </application>
 
 </manifest>

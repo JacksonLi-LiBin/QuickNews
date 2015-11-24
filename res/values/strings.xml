@@ -41,5 +41,10 @@
     <string name="content_desc_unpinned_downloaded">Temporarily downloaded</string>
     <string name="content_desc_unpinned_downloading">Temporarily downloading</string>
     <string name="content_desc_unpinned_not_downloaded">Not downloaded</string>
+    <string name="press_again_exit">再次点击，退出新闻快讯</string>
+    <string name="drawer_btn_rss">频道管理</string>
+    <string name="subscribe_more_category">更多频道</string>
+    <string name="subscribe_my_category">我的频道</string>
+    <string name="subscribe_manager_category_info_2">单击增删频道，长按拖拽排序</string>
 
 </resources>
