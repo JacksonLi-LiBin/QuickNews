@@ -85,7 +85,8 @@ public class MainActivity extends BaseActivity {
 
 	@AfterInject
 	void init() {
-		getWindow().setFlags(WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED,
+		getWindow().setFlags(
+				WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED,
 				WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED);
 		mScreenWidth = BaseTools.getWindowsWidth(this);
 		mItemWidth = mScreenWidth / 7;// 一个item宽度为屏幕的1/7
@@ -115,7 +116,8 @@ public class MainActivity extends BaseActivity {
 
 	private void initSlidingMenu() {
 		leftView = LeftView_.build(this);
-		side_drawer = SlidingMenuView.instance().initSlidingMenuView(this, leftView);
+		side_drawer = SlidingMenuView.instance().initSlidingMenuView(this,
+				leftView);
 	}
 
 	private void initViewPager() {
@@ -126,8 +128,8 @@ public class MainActivity extends BaseActivity {
 	}
 
 	private void initColumnData() {
-		userChannelList = ((ArrayList<ChannelItem>) ChannelManage.getManage(App.getApplication().getSQLHelper())
-				.getUserChannel());
+		userChannelList = ((ArrayList<ChannelItem>) ChannelManage.getManage(
+				App.getApplication().getSQLHelper()).getUserChannel());
 		initTabColumn();
 		// initFragment();
 	}
@@ -140,20 +142,24 @@ public class MainActivity extends BaseActivity {
 	private void initTabColumn() {
 		mRadioGroup_content.removeAllViews();
 		int count = userChannelList.size();
-		mColumnHorizontalScrollView.setParam(this, mScreenWidth, mRadioGroup_content, shade_left, shade_right,
-				ll_more_columns, rl_column);
+		mColumnHorizontalScrollView.setParam(this, mScreenWidth,
+				mRadioGroup_content, shade_left, shade_right, ll_more_columns,
+				rl_column);
 		for (int i = 0; i < count; i++) {
-			LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(mItemWidth, LayoutParams.WRAP_CONTENT);
+			LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+					mItemWidth, LayoutParams.WRAP_CONTENT);
 			params.leftMargin = 5;
 			params.rightMargin = 5;
 			TextView columnTextView = new TextView(this);
-			columnTextView.setTextAppearance(this, R.style.top_category_scroll_view_item_text);
+			columnTextView.setTextAppearance(this,
+					R.style.top_category_scroll_view_item_text);
 			columnTextView.setBackgroundResource(R.drawable.radio_button_bg);
 			columnTextView.setGravity(Gravity.CENTER);
 			columnTextView.setPadding(5, 5, 5, 5);
 			columnTextView.setId(i);
 			columnTextView.setText(userChannelList.get(i).getName());
-			columnTextView.setTextColor(getResources().getColorStateList(R.color.top_category_scroll_text_color_day));
+			columnTextView.setTextColor(getResources().getColorStateList(
+					R.color.top_category_scroll_text_color_day));
 			if (columnSelectIndex == i) {
 				columnTextView.setSelected(true);
 			}

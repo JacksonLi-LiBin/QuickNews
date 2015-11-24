@@ -11,6 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
+import com.lb.quicknews.view.NewImageView;
+import com.lb.quicknews.view.NewImageView_;
+
 @EBean
 public class ImageAdapter extends BaseAdapter {
 	public List<String> lists = new ArrayList<String>();
@@ -21,6 +24,11 @@ public class ImageAdapter extends BaseAdapter {
 		if (!lists.containsAll(list) && list != null && list.size() > 0) {
 			lists.addAll(list);
 		}
+		notifyDataSetChanged();
+	}
+
+	public void clear() {
+		lists.clear();
 		notifyDataSetChanged();
 	}
 
@@ -41,7 +49,14 @@ public class ImageAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		return null;
+		NewImageView newImageView;
+		if (convertView == null) {
+			newImageView = NewImageView_.build(context);
+		} else {
+			newImageView = (NewImageView) convertView;
+		}
+		newImageView.setImage(lists, position);
+		return newImageView;
 	}
 
 }

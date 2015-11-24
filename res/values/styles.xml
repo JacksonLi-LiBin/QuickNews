@@ -188,4 +188,9 @@
         <item name="pinned">true</item>
     </style>
 
+    <style name="detail_back_view" parent="@style/back_view">
+        <item name="android:background">@drawable/transparent</item>
+        <item name="android:drawableLeft">@drawable/btn_back_detail</item>
+    </style>
+
 </resources>

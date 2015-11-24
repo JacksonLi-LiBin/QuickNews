@@ -52,5 +52,11 @@
     <color name="detail_title_text_color">#ff999999</color>
     <color name="progress_default_circle_color">#80ffffff</color>
     <color name="progress_default_progress_color">#33b5e5</color>
+    <color name="detail_divider_day">#ffb4b4b4</color>
+    <!-- 详情图片进度条 -->
+    <color name="default_background_color">@android:color/transparent</color>
+    <color name="default_progress_color">#33b5e5</color>
+    <color name="default_stroke_color">#33b5e5</color>
+    <color name="default_text_color">#333333</color>
 
 </resources>

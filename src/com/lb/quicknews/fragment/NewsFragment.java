@@ -9,6 +9,7 @@ import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.EFragment;
+import org.androidannotations.annotations.ItemClick;
 import org.androidannotations.annotations.ViewById;
 
 import android.app.Activity;
@@ -21,6 +22,9 @@ import android.view.View;
 import android.widget.ProgressBar;
 
 import com.lb.quicknews.R;
+import com.lb.quicknews.activity.BaseActivity;
+import com.lb.quicknews.activity.DetailsActivity_;
+import com.lb.quicknews.activity.ImageDetailActivity_;
 import com.lb.quicknews.adapter.CardsAnimationAdapter;
 import com.lb.quicknews.adapter.NewsAdapter;
 import com.lb.quicknews.bean.NewsModle;
@@ -108,6 +112,12 @@ public class NewsFragment extends BaseFragment implements
 	@Override
 	public void onSliderClick(BaseSliderView slider) {
 		NewsModle newsModle = newHashMap.get(slider.getUrl());
+		enterDetailActivity(newsModle);
+	}
+
+	@ItemClick(R.id.listview)
+	void onItemClick(int position) {
+		NewsModle newsModle = listModles.get(position - 1);
 		enterDetailActivity(newsModle);
 	}
 
@@ -203,7 +213,10 @@ public class NewsFragment extends BaseFragment implements
 		Class<?> class1;
 		if (newsModle.getImagesModle() != null
 				&& newsModle.getImagesModle().getImgList().size() > 1) {
-			// class1=imaged
+			class1 = ImageDetailActivity_.class;
+		} else {
+			class1 = DetailsActivity_.class;
 		}
+		((BaseActivity) getActivity()).openActivity(class1, bundle, 0);
 	}
 }
