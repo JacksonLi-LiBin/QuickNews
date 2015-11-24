@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:ppv="http://schemas.android.com/apk/res-auto"
+    xmlns:app1="http://schemas.android.com/apk/res/com.lb.quicknews"
+    android:id="@+id/root_view"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/activity_bg_color" >
+
+    <include
+        android:id="@+id/title_bar"
+        layout="@layout/detail_title_bar" >
+    </include>
+
+    <View
+        android:id="@+id/title_bar_divider"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/title_bar"
+        android:background="@color/detail_divider_day" />
+
+    <ScrollView
+        android:id="@+id/scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/title_bar_divider" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/new_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10.0dp"
+                android:gravity="center"
+                android:textColor="@color/item_title"
+                android:textSize="20.0sp" />
+
+            <TextView
+                android:id="@+id/new_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/new_title"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5.0dp"
+                android:gravity="center"
+                android:textColor="@color/item_title"
+                android:textSize="12.0sp" />
+
+            <ImageView
+                android:id="@+id/new_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/new_time"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5.0dp"
+                android:src="@drawable/base_article_bigimage"
+                android:visibility="gone" />
+
+            <com.lb.quicknews.wedget.htmltextview.HtmlTextView
+                android:id="@+id/web_details"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/new_img"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="5.0dp"
+                android:textColor="@color/item_title"
+                android:textSize="16.0sp"
+                android:visibility="visible" >
+            </com.lb.quicknews.wedget.htmltextview.HtmlTextView>
+
+            <TextView
+                android:id="@+id/img_count"
+                android:layout_width="50.0dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/new_img"
+                android:layout_alignLeft="@+id/new_img"
+                android:background="@drawable/bg_master"
+                android:gravity="center"
+                android:visibility="gone" />
+
+            <com.lb.quicknews.wedget.ProgressPieView
+                android:id="@+id/progressPieView"
+                android:layout_width="48.0dp"
+                android:layout_height="48.0dp"
+                android:layout_alignTop="@+id/new_img"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="85.0dp"
+                android:text="0%"
+                android:visibility="gone"
+                app1:typeface="fonts/Roboto/RobotoCondensed-Bold.ttf" />
+
+            <ImageView
+                android:id="@+id/play"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/new_img"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="85.0dp"
+                android:src="@drawable/biz_special_news_cover"
+                android:visibility="gone" />
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>
