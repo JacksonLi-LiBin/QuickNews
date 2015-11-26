@@ -38,7 +38,8 @@ public class NewsListJson extends JsonPacket {
 			for (int i = 0; i < jsonArray.length(); i++) {
 				newsModle = new NewsModle();
 				JSONObject jo = jsonArray.getJSONObject(i);
-				if (jo.has("skipType") && jo.getString("skipType").equals("special")) {
+				if (jo.has("skipType")
+						&& jo.getString("skipType").equals("special")) {
 					continue;
 				}
 				if (jo.has("TAGS") && jo.has("TAG")) {

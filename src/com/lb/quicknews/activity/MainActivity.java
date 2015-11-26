@@ -154,7 +154,7 @@ public class MainActivity extends BaseActivity {
 		userChannelList = ((ArrayList<ChannelItem>) ChannelManage.getManage(
 				App.getApplication().getSQLHelper()).getUserChannel());
 		initTabColumn();
-		// initFragment();
+		 initFragment();
 	}
 
 	/**

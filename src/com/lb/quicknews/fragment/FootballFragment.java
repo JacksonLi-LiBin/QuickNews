@@ -2,11 +2,11 @@ package com.lb.quicknews.fragment;
 
 import org.androidannotations.annotations.EFragment;
 
+import android.support.v4.widget.SwipeRefreshLayout;
+
 import com.lb.quicknews.R;
 import com.lb.quicknews.wedget.viewimage.SliderTypes.BaseSliderView;
 import com.lb.quicknews.wedget.viewimage.SliderTypes.BaseSliderView.OnSliderClickListener;
-
-import android.support.v4.widget.SwipeRefreshLayout;
 
 @EFragment(R.layout.fragment_football)
 public class FootballFragment extends BaseFragment implements

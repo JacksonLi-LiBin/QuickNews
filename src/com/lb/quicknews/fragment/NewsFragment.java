@@ -12,9 +12,10 @@ import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.ItemClick;
 import org.androidannotations.annotations.ViewById;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Handler.Callback;
+import android.os.Message;
 import android.support.annotation.UiThread;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
@@ -59,11 +60,43 @@ public class NewsFragment extends BaseFragment implements
 	List<NewsModle> listModles;
 	private int index = 0;
 	private boolean isRefresh = false;
+	private Handler handler = new Handler(new Callback() {
+		@Override
+		public boolean handleMessage(Message msg) {
+			switch (msg.what) {
+			case 0:
+				String result = (String) msg.obj;
+				try {
+					getMyActivity().setCacheStr("NewsFragment" + currentPage,
+							result);
+					if (isRefresh) {
+						isRefresh = false;
+						newsAdapter.clear();
+						listModles.clear();
+					}
+					mProgressBar.setVisibility(View.GONE);
+					swipeLayout.setRefreshing(false);
+					List<NewsModle> list = NewsListJson.getInstance(
+							getActivity())
+							.readJsonNewsModles(result, Url.TopId);
+					if (index == 0 && list.size() >= 4) {
+						initSliderLayout(list);
+					} else {
+						newsAdapter.appendList(list);
+					}
+					listModles.addAll(list);
+					mListView.onBottomComplete();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+				break;
 
-	@Override
-	public void onAttach(Activity activity) {
-		super.onAttach(activity);
-	}
+			default:
+				break;
+			}
+			return false;
+		}
+	});
 
 	@AfterInject
 	void init() {
@@ -153,23 +186,32 @@ public class NewsFragment extends BaseFragment implements
 
 	@UiThread
 	public void getResult(String result) {
-		getMyActivity().setCacheStr("NewsFragment" + currentPage, result);
-		if (isRefresh) {
-			isRefresh = false;
-			newsAdapter.clear();
-			listModles.clear();
-		}
-		mProgressBar.setVisibility(View.GONE);
-		swipeLayout.setRefreshing(false);
-		List<NewsModle> list = NewsListJson.getInstance(getActivity())
-				.readJsonNewsModles(result, Url.TopId);
-		if (index == 0 && list.size() >= 4) {
-			initSliderLayout(list);
-		} else {
-			newsAdapter.appendList(list);
-		}
-		listModles.addAll(list);
-		mListView.onBottomComplete();
+		Message msg = new Message();
+		msg.what = 0;
+		msg.obj = result;
+		handler.sendMessage(msg);
+		// try {
+		// getMyActivity().setCacheStr("NewsFragment" + currentPage, result);
+		// if (isRefresh) {
+		// isRefresh = false;
+		// newsAdapter.clear();
+		// listModles.clear();
+		// }
+		// mProgressBar.setVisibility(View.GONE);
+		// swipeLayout.setRefreshing(false);
+		// List<NewsModle> list = NewsListJson.getInstance(getActivity())
+		// .readJsonNewsModles(result, Url.TopId);
+		// if (index == 0 && list.size() >= 4) {
+		// initSliderLayout(list);
+		// } else {
+		// newsAdapter.appendList(list);
+		// }
+		// listModles.addAll(list);
+		// mListView.onBottomComplete();
+		// } catch (Exception e) {
+		// System.out.println("-------" + e.getMessage());
+		// e.printStackTrace();
+		// }
 	}
 
 	private void initSliderLayout(List<NewsModle> newModles) {

@@ -64,7 +64,10 @@ public class NewsAdapter extends BaseAdapter {
 		}
 		NewsModle newsModle = lists.get(position);
 		if (newsModle.getImagesModle() == null) {
-			newItemView.setTexts(newsModle.getTitle(), newsModle.getDigest(), newsModle.getImgsrc(), currentItem);
+			newItemView.setTexts(newsModle.getTitle(), newsModle.getDigest(),
+					newsModle.getImgsrc(), currentItem);
+		} else {
+			newItemView.setImages(newsModle);
 		}
 		return newItemView;
 	}
