@@ -4,10 +4,6 @@ import java.io.File;
 
 import org.androidannotations.annotations.EApplication;
 
-import android.app.Application;
-import android.content.Context;
-import android.os.Environment;
-
 import com.lb.quicknews.db.SQLHelper;
 import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiskCache;
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
@@ -18,6 +14,10 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 import com.nostra13.universalimageloader.core.download.BaseImageDownloader;
 import com.nostra13.universalimageloader.utils.StorageUtils;
+
+import android.app.Application;
+import android.content.Context;
+import android.os.Environment;
 
 @EApplication
 public class App extends Application {

@@ -1,10 +1,10 @@
 
 package com.lb.quicknews.wedget.slidingmenu;
 
+import com.lb.quicknews.wedget.slidingmenu.SlidingMenu.CanvasTransformer;
+
 import android.graphics.Canvas;
 import android.view.animation.Interpolator;
-
-import com.lb.quicknews.wedget.slidingmenu.SlidingMenu.CanvasTransformer;
 
 public class CanvasTransformerBuilder {
 

@@ -1,14 +1,14 @@
 
 package com.lb.quicknews.wedget.viewimage.Animations;
 
+import com.lb.quicknews.R;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-
-import com.lb.quicknews.R;
 
 /**
  * Created by daimajia on 14-5-29.

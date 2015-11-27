@@ -1,6 +1,8 @@
 
 package com.lb.quicknews.wedget;
 
+import com.lb.quicknews.R;
+
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
@@ -16,8 +18,6 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.view.View;
-
-import com.lb.quicknews.R;
 
 public class ProgressPieView extends View {
 

@@ -1,12 +1,12 @@
 
 package com.lb.quicknews.wedget.viewimage.Animations;
 
-import android.util.Log;
-import android.view.View;
-
 import com.lb.quicknews.R;
 import com.nineoldandroids.animation.ObjectAnimator;
 import com.nineoldandroids.animation.ValueAnimator;
+
+import android.util.Log;
+import android.view.View;
 
 public class ChildAnimationExample implements BaseAnimationInterface {
 

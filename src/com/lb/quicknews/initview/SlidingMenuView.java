@@ -1,13 +1,13 @@
 package com.lb.quicknews.initview;
 
+import com.lb.quicknews.R;
+import com.lb.quicknews.wedget.slidingmenu.SlidingMenu;
+import com.lb.quicknews.wedget.slidingmenu.SlidingMenu.CanvasTransformer;
+
 import android.app.Activity;
 import android.graphics.Canvas;
 import android.view.View;
 import android.widget.ImageView;
-
-import com.lb.quicknews.R;
-import com.lb.quicknews.wedget.slidingmenu.SlidingMenu;
-import com.lb.quicknews.wedget.slidingmenu.SlidingMenu.CanvasTransformer;
 
 public class SlidingMenuView {
 	private static SlidingMenuView slidingMenuView;

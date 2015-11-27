@@ -26,7 +26,7 @@ public class Url {
     // 电影
     public static final String DianYingId = "T1348648650048";
     // 汽车
-    public static final String QiChiId = "T1348654060988";
+    public static final String QiCheId = "T1348654060988";
     // 笑话
     public static final String XiaoHuaId = "T1350383429665";
     // 笑话

@@ -6,9 +6,9 @@ import java.util.List;
 import org.androidannotations.annotations.EBean;
 import org.androidannotations.annotations.RootContext;
 
-import com.lb.quicknews.bean.NewsModle;
-import com.lb.quicknews.view.NewItemView;
-import com.lb.quicknews.view.NewItemView_;
+import com.lb.quicknews.bean.PhotoModle;
+import com.lb.quicknews.view.PhotoItemView;
+import com.lb.quicknews.view.PhotoItemView_;
 
 import android.content.Context;
 import android.view.View;
@@ -16,12 +16,11 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
 @EBean
-public class NewsAdapter extends BaseAdapter {
-	public List<NewsModle> lists = new ArrayList<NewsModle>();
-	private String currentItem;
+public class PhotoAdapter extends BaseAdapter {
+	public List<PhotoModle> lists = new ArrayList<PhotoModle>();
 
-	public void appendList(List<NewsModle> list) {
-		if (!lists.containsAll(list) && list != null && list.size() > 0) {
+	public void appendList(List<PhotoModle> list) {
+		if (!lists.contains(list) && list != null && list.size() > 0) {
 			lists.addAll(list);
 		}
 		notifyDataSetChanged();
@@ -33,10 +32,6 @@ public class NewsAdapter extends BaseAdapter {
 	public void clear() {
 		lists.clear();
 		notifyDataSetChanged();
-	}
-
-	public void currentItem(String item) {
-		this.currentItem = item;
 	}
 
 	@Override
@@ -56,20 +51,15 @@ public class NewsAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		NewItemView newItemView;
+		PhotoItemView photoItemView;
 		if (convertView == null) {
-			newItemView = NewItemView_.build(context);
+			photoItemView = PhotoItemView_.build(context);
 		} else {
-			newItemView = (NewItemView) convertView;
+			photoItemView = (PhotoItemView) convertView;
 		}
-		NewsModle newsModle = lists.get(position);
-		if (newsModle.getImagesModle() == null) {
-			newItemView.setTexts(newsModle.getTitle(), newsModle.getDigest(),
-					newsModle.getImgsrc(), currentItem);
-		} else {
-			newItemView.setImages(newsModle);
-		}
-		return newItemView;
+		PhotoModle photoModle = lists.get(position);
+		photoItemView.setData(photoModle.getSetname(), photoModle.getClientcover());
+		return photoItemView;
 	}
 
 }

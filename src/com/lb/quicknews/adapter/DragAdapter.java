@@ -2,6 +2,9 @@ package com.lb.quicknews.adapter;
 
 import java.util.List;
 
+import com.lb.quicknews.R;
+import com.lb.quicknews.bean.ChannelItem;
+
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -9,9 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-
-import com.lb.quicknews.R;
-import com.lb.quicknews.bean.ChannelItem;
 
 public class DragAdapter extends BaseAdapter {
 	/** TAG */

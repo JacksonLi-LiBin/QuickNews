@@ -1,12 +1,12 @@
 
 package com.lb.quicknews.wedget.discrollview;
 
+import com.nineoldandroids.animation.ArgbEvaluator;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
-
-import com.nineoldandroids.animation.ArgbEvaluator;
 
 /**
  *

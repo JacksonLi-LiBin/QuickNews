@@ -12,16 +12,6 @@ import org.androidannotations.annotations.EFragment;
 import org.androidannotations.annotations.ItemClick;
 import org.androidannotations.annotations.ViewById;
 
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Handler.Callback;
-import android.os.Message;
-import android.support.annotation.UiThread;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.ProgressBar;
-
 import com.lb.quicknews.R;
 import com.lb.quicknews.activity.BaseActivity;
 import com.lb.quicknews.activity.DetailsActivity_;
@@ -42,9 +32,18 @@ import com.lb.quicknews.wedget.viewimage.SliderTypes.BaseSliderView.OnSliderClic
 import com.lb.quicknews.wedget.viewimage.SliderTypes.TextSliderView;
 import com.nhaarman.listviewanimations.appearance.AnimationAdapter;
 
-@EFragment(R.layout.fragment_news)
-public class NewsFragment extends BaseFragment implements
-		SwipeRefreshLayout.OnRefreshListener, OnSliderClickListener {
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Handler.Callback;
+import android.os.Message;
+import android.support.annotation.UiThread;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.ProgressBar;
+
+@EFragment(R.layout.fragment_main)
+public class NewsFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener, OnSliderClickListener {
 	SliderLayout mDemoSlider;
 	@ViewById(R.id.swipe_container)
 	SwipeRefreshLayout swipeLayout;
@@ -67,8 +66,7 @@ public class NewsFragment extends BaseFragment implements
 			case 0:
 				String result = (String) msg.obj;
 				try {
-					getMyActivity().setCacheStr("NewsFragment" + currentPage,
-							result);
+					getMyActivity().setCacheStr("NewsFragment" + currentPage, result);
 					if (isRefresh) {
 						isRefresh = false;
 						newsAdapter.clear();
@@ -76,9 +74,8 @@ public class NewsFragment extends BaseFragment implements
 					}
 					mProgressBar.setVisibility(View.GONE);
 					swipeLayout.setRefreshing(false);
-					List<NewsModle> list = NewsListJson.getInstance(
-							getActivity())
-							.readJsonNewsModles(result, Url.TopId);
+					List<NewsModle> list = NewsListJson.getInstance(getActivity()).readJsonNewsModles(result,
+							Url.TopId);
 					if (index == 0 && list.size() >= 4) {
 						initSliderLayout(list);
 					} else {
@@ -110,12 +107,10 @@ public class NewsFragment extends BaseFragment implements
 		swipeLayout.setOnRefreshListener(this);
 		InitView.getInstance().initSwipeRefreshLayout(swipeLayout);
 		InitView.getInstance().initListView(mListView, getActivity());
-		View headView = LayoutInflater.from(getActivity()).inflate(
-				R.layout.head_item, null);
+		View headView = LayoutInflater.from(getActivity()).inflate(R.layout.head_item, null);
 		mDemoSlider = (SliderLayout) headView.findViewById(R.id.slider);
 		mListView.addHeaderView(headView);
-		AnimationAdapter animationAdapter = new CardsAnimationAdapter(
-				newsAdapter);
+		AnimationAdapter animationAdapter = new CardsAnimationAdapter(newsAdapter);
 		animationAdapter.setAbsListView(mListView);
 		mListView.setAdapter(animationAdapter);
 		loadData(getNewUrl(index + ""));
@@ -133,9 +128,10 @@ public class NewsFragment extends BaseFragment implements
 	public void onRefresh() {
 		new Handler().postDelayed(new Runnable() {
 			public void run() {
+				index = 0;
 				currentPage = 1;
 				isRefresh = true;
-				loadData(getNewUrl("0"));
+				loadData(getNewUrl(index + ""));
 				url_maps.clear();
 				mDemoSlider.removeAllSliders();
 			}
@@ -161,8 +157,7 @@ public class NewsFragment extends BaseFragment implements
 			mListView.onBottomComplete();
 			mProgressBar.setVisibility(View.GONE);
 			getMyActivity().showShortToast(getString(R.string.not_network));
-			String result = getMyActivity().getCacheStr(
-					"NewsFragment" + currentPage);
+			String result = getMyActivity().getCacheStr("NewsFragment" + currentPage);
 			if (!StringUtils.isEmpty(result)) {
 				getResult(result);
 			}
@@ -224,17 +219,13 @@ public class NewsFragment extends BaseFragment implements
 		if (!isNullString(newModles.get(3).getImgsrc()))
 			newHashMap.put(newModles.get(3).getImgsrc(), newModles.get(3));
 		if (!isNullString(newModles.get(0).getImgsrc()))
-			url_maps.put(newModles.get(0).getTitle(), newModles.get(0)
-					.getImgsrc());
+			url_maps.put(newModles.get(0).getTitle(), newModles.get(0).getImgsrc());
 		if (!isNullString(newModles.get(1).getImgsrc()))
-			url_maps.put(newModles.get(1).getTitle(), newModles.get(1)
-					.getImgsrc());
+			url_maps.put(newModles.get(1).getTitle(), newModles.get(1).getImgsrc());
 		if (!isNullString(newModles.get(2).getImgsrc()))
-			url_maps.put(newModles.get(2).getTitle(), newModles.get(2)
-					.getImgsrc());
+			url_maps.put(newModles.get(2).getTitle(), newModles.get(2).getImgsrc());
 		if (!isNullString(newModles.get(3).getImgsrc()))
-			url_maps.put(newModles.get(3).getTitle(), newModles.get(3)
-					.getImgsrc());
+			url_maps.put(newModles.get(3).getTitle(), newModles.get(3).getImgsrc());
 		for (String name : url_maps.keySet()) {
 			TextSliderView textSliderView = new TextSliderView(getActivity());
 			textSliderView.setOnSliderClickListener(this);
@@ -243,8 +234,7 @@ public class NewsFragment extends BaseFragment implements
 			mDemoSlider.addSlider(textSliderView);
 		}
 		mDemoSlider.setPresetTransformer(SliderLayout.Transformer.Accordion);
-		mDemoSlider
-				.setPresetIndicator(SliderLayout.PresetIndicators.Right_Bottom);
+		mDemoSlider.setPresetIndicator(SliderLayout.PresetIndicators.Right_Bottom);
 		mDemoSlider.setCustomAnimation(new DescriptionAnimation());
 		newsAdapter.appendList(newModles);
 	}
@@ -253,8 +243,7 @@ public class NewsFragment extends BaseFragment implements
 		Bundle bundle = new Bundle();
 		bundle.putSerializable("newsModle", newsModle);
 		Class<?> class1;
-		if (newsModle.getImagesModle() != null
-				&& newsModle.getImagesModle().getImgList().size() > 1) {
+		if (newsModle.getImagesModle() != null && newsModle.getImagesModle().getImgList().size() > 1) {
 			class1 = ImageDetailActivity_.class;
 		} else {
 			class1 = DetailsActivity_.class;

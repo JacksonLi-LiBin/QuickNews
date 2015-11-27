@@ -20,6 +20,8 @@ package com.lb.quicknews.wedget.swipelistview;
 
 import java.util.List;
 
+import com.lb.quicknews.R;
+
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.database.DataSetObserver;
@@ -41,8 +43,6 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
-import com.lb.quicknews.R;
 
 /**
  * ListView subclass that provides the swipe functionality

@@ -1,13 +1,13 @@
 package com.lb.quicknews.utils;
 
+import com.lb.quicknews.R;
+
 import android.app.Dialog;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-
-import com.lb.quicknews.R;
 
 /**
  * Created by Administrator on 2015/11/17 0017.

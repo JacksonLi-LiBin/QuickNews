@@ -81,6 +81,7 @@
                 android:layout_alignLeft="@+id/new_img"
                 android:background="@drawable/bg_master"
                 android:gravity="center"
+                android:textColor="@color/white"
                 android:visibility="gone" />
 
             <com.lb.quicknews.wedget.ProgressPieView

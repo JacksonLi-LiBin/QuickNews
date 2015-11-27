@@ -27,9 +27,9 @@ import org.apache.http.params.HttpProtocolParams;
 import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
 
-import android.content.Context;
-
 import com.lb.quicknews.R;
+
+import android.content.Context;
 
 /**
  * Created by Administrator on 2015/11/17 0017.

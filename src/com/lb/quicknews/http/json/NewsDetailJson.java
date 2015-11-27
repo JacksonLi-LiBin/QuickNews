@@ -6,9 +6,9 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import android.content.Context;
-
 import com.lb.quicknews.bean.NewsDetailModle;
+
+import android.content.Context;
 
 public class NewsDetailJson extends JsonPacket {
 	public static NewsDetailJson newsDetailJson;

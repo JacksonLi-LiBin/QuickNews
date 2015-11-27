@@ -1,11 +1,11 @@
 package com.lb.quicknews.fragment;
 
-import android.support.v4.app.Fragment;
-import android.view.View;
-
 import com.lb.quicknews.activity.BaseActivity;
 import com.lb.quicknews.http.Url;
 import com.lb.quicknews.utils.StringUtils;
+
+import android.support.v4.app.Fragment;
+import android.view.View;
 
 public class BaseFragment extends Fragment {
 	public View mView;

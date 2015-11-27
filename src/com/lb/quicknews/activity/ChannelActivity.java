@@ -7,6 +7,15 @@ import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.UiThread;
 
+import com.lb.quicknews.App;
+import com.lb.quicknews.R;
+import com.lb.quicknews.adapter.DragAdapter;
+import com.lb.quicknews.adapter.OtherAdapter;
+import com.lb.quicknews.bean.ChannelItem;
+import com.lb.quicknews.bean.ChannelManage;
+import com.lb.quicknews.wedget.DragGrid;
+import com.lb.quicknews.wedget.OtherGridView;
+
 import android.graphics.Bitmap;
 import android.os.Handler;
 import android.view.View;
@@ -22,15 +31,6 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import com.lb.quicknews.App;
-import com.lb.quicknews.R;
-import com.lb.quicknews.adapter.DragAdapter;
-import com.lb.quicknews.adapter.OtherAdapter;
-import com.lb.quicknews.bean.ChannelItem;
-import com.lb.quicknews.bean.ChannelManage;
-import com.lb.quicknews.wedget.DragGrid;
-import com.lb.quicknews.wedget.OtherGridView;
 
 @EActivity(R.layout.channel)
 public class ChannelActivity extends BaseActivity implements

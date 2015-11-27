@@ -17,6 +17,8 @@
 
 package com.lb.quicknews.wedget;
 
+import com.lb.quicknews.R;
+
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
@@ -31,8 +33,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.widget.CompoundButton;
-
-import com.lb.quicknews.R;
 
 /**
  * A two-state button that indicates whether some related content is pinned (the

@@ -1,6 +1,9 @@
 
 package com.lb.quicknews.wedget.slidingmenu;
 
+import com.lb.quicknews.R;
+import com.lb.quicknews.wedget.slidingmenu.SlidingMenu.CanvasTransformer;
+
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
@@ -13,9 +16,6 @@ import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.lb.quicknews.R;
-import com.lb.quicknews.wedget.slidingmenu.SlidingMenu.CanvasTransformer;
 
 public class CustomViewBehind extends ViewGroup {
 

@@ -1,15 +1,15 @@
 package com.lb.quicknews.initview;
 
-import android.app.Activity;
-import android.content.Context;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.view.View;
-
 import com.lb.quicknews.R;
 import com.lb.quicknews.utils.ScreenUtils;
 import com.lb.quicknews.utils.SettingsManager;
 import com.lb.quicknews.wedget.slidingmenu.SlidingMenu;
 import com.lb.quicknews.wedget.swipelistview.SwipeListView;
+
+import android.app.Activity;
+import android.content.Context;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.view.View;
 
 public class InitView {
 	public static InitView initView;

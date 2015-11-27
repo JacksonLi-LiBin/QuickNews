@@ -1,5 +1,9 @@
 package com.lb.quicknews.wedget;
 
+import com.lb.quicknews.R;
+import com.lb.quicknews.adapter.DragAdapter;
+import com.lb.quicknews.utils.DataTools;
+
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.PixelFormat;
@@ -18,10 +22,6 @@ import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.lb.quicknews.R;
-import com.lb.quicknews.adapter.DragAdapter;
-import com.lb.quicknews.utils.DataTools;
 
 public class DragGrid extends GridView {
 	/** 点击时候的X位置 */

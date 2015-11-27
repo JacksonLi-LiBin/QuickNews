@@ -1,9 +1,9 @@
 
 package com.lb.quicknews.wedget.viewimage.Transformers;
 
-import android.view.View;
-
 import com.nineoldandroids.view.ViewHelper;
+
+import android.view.View;
 
 public class StackTransformer extends BaseTransformer {
 

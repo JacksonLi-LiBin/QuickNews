@@ -3,6 +3,9 @@ package com.lb.quicknews.wedget.slidingmenu;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.lb.quicknews.wedget.slidingmenu.SlidingMenu.OnClosedListener;
+import com.lb.quicknews.wedget.slidingmenu.SlidingMenu.OnOpenedListener;
+
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Rect;
@@ -24,9 +27,6 @@ import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.view.animation.Interpolator;
 import android.widget.Scroller;
-
-import com.lb.quicknews.wedget.slidingmenu.SlidingMenu.OnClosedListener;
-import com.lb.quicknews.wedget.slidingmenu.SlidingMenu.OnOpenedListener;
 
 //import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu.OnCloseListener;
 //import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu.OnOpenListener;

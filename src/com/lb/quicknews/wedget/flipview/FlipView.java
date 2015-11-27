@@ -1,5 +1,8 @@
 package com.lb.quicknews.wedget.flipview;
 
+import com.lb.quicknews.R;
+import com.lb.quicknews.wedget.flipview.Recycler.Scrap;
+
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.TimeInterpolator;
@@ -28,9 +31,6 @@ import android.view.animation.Interpolator;
 import android.widget.FrameLayout;
 import android.widget.ListAdapter;
 import android.widget.Scroller;
-
-import com.lb.quicknews.R;
-import com.lb.quicknews.wedget.flipview.Recycler.Scrap;
 
 public class FlipView extends FrameLayout {
 

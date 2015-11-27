@@ -8,8 +8,6 @@ import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
-import android.widget.TextView;
-
 import com.lb.quicknews.R;
 import com.lb.quicknews.adapter.ImageAdapter;
 import com.lb.quicknews.bean.NewsDetailModle;
@@ -18,6 +16,8 @@ import com.lb.quicknews.wedget.flipview.FlipView;
 import com.lb.quicknews.wedget.flipview.FlipView.OnFlipListener;
 import com.lb.quicknews.wedget.flipview.FlipView.OnOverFlipListener;
 import com.lb.quicknews.wedget.flipview.OverFlipMode;
+
+import android.widget.TextView;
 
 @EActivity(R.layout.activity_image_detail)
 public class ImageDetailActivity extends BaseActivity implements
