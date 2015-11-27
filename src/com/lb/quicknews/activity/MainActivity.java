@@ -162,6 +162,7 @@ public class MainActivity extends BaseActivity {
 	 * 
 	 * @author JacksonLi
 	 */
+	@SuppressWarnings("deprecation")
 	private void initTabColumn() {
 		mRadioGroup_content.removeAllViews();
 		int count = userChannelList.size();
