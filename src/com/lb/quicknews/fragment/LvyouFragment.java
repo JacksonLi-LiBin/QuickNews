@@ -28,14 +28,14 @@ import com.lb.quicknews.wedget.swipelistview.SwipeListView;
 import com.lb.quicknews.wedget.viewimage.Animations.DescriptionAnimation;
 import com.lb.quicknews.wedget.viewimage.Animations.SliderLayout;
 import com.lb.quicknews.wedget.viewimage.SliderTypes.BaseSliderView;
-import com.lb.quicknews.wedget.viewimage.SliderTypes.TextSliderView;
 import com.lb.quicknews.wedget.viewimage.SliderTypes.BaseSliderView.OnSliderClickListener;
+import com.lb.quicknews.wedget.viewimage.SliderTypes.TextSliderView;
 import com.nhaarman.listviewanimations.appearance.AnimationAdapter;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Message;
 import android.os.Handler.Callback;
+import android.os.Message;
 import android.support.annotation.UiThread;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;

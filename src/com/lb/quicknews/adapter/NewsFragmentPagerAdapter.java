@@ -18,8 +18,7 @@ public class NewsFragmentPagerAdapter extends FragmentPagerAdapter {
 		this.fm = fm;
 	}
 
-	public NewsFragmentPagerAdapter(FragmentManager fm,
-			ArrayList<Fragment> fragments) {
+	public NewsFragmentPagerAdapter(FragmentManager fm, ArrayList<Fragment> fragments) {
 		super(fm);
 		this.fm = fm;
 		this.fragments = fragments;
@@ -65,6 +64,7 @@ public class NewsFragmentPagerAdapter extends FragmentPagerAdapter {
 	@Override
 	public void destroyItem(ViewGroup container, int position, Object object) {
 		// 这里Destroy的是Fragment的师徒层次，并不是Destroy Fragment对象
+		super.destroyItem(container, position, object);
 	}
 
 	@Override

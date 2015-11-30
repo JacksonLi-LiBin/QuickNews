@@ -194,7 +194,6 @@ public class MainActivity extends BaseActivity {
 							mViewPager.setCurrentItem(i);
 						}
 					}
-
 				}
 			});
 			mRadioGroup_content.addView(columnTextView, i, params);
@@ -284,7 +283,8 @@ public class MainActivity extends BaseActivity {
 
 		@Override
 		public void onPageSelected(int arg0) {
-
+			mViewPager.setCurrentItem(arg0);
+			selectTab(arg0);
 		}
 
 		@Override
@@ -294,9 +294,7 @@ public class MainActivity extends BaseActivity {
 
 		@Override
 		public void onPageScrollStateChanged(int arg0) {
-			System.out.println("------------>page change");
-			mViewPager.setCurrentItem(arg0);
-			selectTab(arg0);
+
 		}
 	};
 

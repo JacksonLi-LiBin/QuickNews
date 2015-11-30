@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@drawable/night_biz_account_location_icon" android:state_pressed="true"></item>
+    <item android:drawable="@drawable/night_biz_account_location_icon" android:state_enabled="false"></item>
+    <item android:drawable="@drawable/biz_account_location_icon"></item>
+
+</selector>
