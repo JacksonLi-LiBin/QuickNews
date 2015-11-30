@@ -7,7 +7,8 @@ import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
 import com.lb.quicknews.R;
-import com.lb.quicknews.fragment.TupianSinaJingXuanFragment_;
+import com.lb.quicknews.fragment.TupianDuJiaFragment_;
+import com.lb.quicknews.fragment.TupianReDianFragment_;
 
 import android.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -30,6 +31,7 @@ public class PictureActivity extends BaseActivity {
 	@AfterInject
 	void init() {
 		fragments = new ArrayList<Fragment>();
-		// fragments.add(new TupianSinaJingXuanFragment_());
+		// fragments.add(new TupianReDianFragment_());
+		// fragments.add(new TupianDuJiaFragment_());
 	}
 }
