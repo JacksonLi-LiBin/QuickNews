@@ -74,6 +74,8 @@
         </activity>
         <activity android:name=".activity.PictureDetailActivity_" >
         </activity>
+        <activity android:name=".activity.ChooseCityActivity_" >
+        </activity>
     </application>
 
 </manifest>

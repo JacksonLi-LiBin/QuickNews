@@ -77,5 +77,7 @@
     <color name="subscribe_bg">#fff5f5f5</color>
     <color name="subscribe_tip_text">#ff2e2e2e</color>
     <color name="subscribe_seperate_line">#ffcdcdcd</color>
+    <color name="listview_item_normal">#eef0ed</color>
+    <color name="listview_item_pressed">#d4d4d4</color>
 
 </resources>

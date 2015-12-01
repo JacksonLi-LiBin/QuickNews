@@ -7,7 +7,9 @@ import org.androidannotations.annotations.AfterInject;
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.Bean;
+import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.OnActivityResult;
 import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
 
@@ -22,6 +24,7 @@ import com.lb.quicknews.utils.StringUtils;
 import com.lb.quicknews.utils.TimeUtils;
 import com.lb.quicknews.utils.VolleyUtils;
 
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.view.ViewPager;
@@ -136,6 +139,27 @@ public class WeatherActivity extends BaseActivity implements ResponseData {
 		msg.what = 0;
 		msg.obj = result;
 		handler.sendMessage(msg);
+	}
+
+	@Click(R.id.local)
+	void chooseCity(View view) {
+		openActivityForResult(ChooseCityActivity_.class, REQUEST_CODE);
+	}
+
+	@OnActivityResult(REQUEST_CODE)
+	void onResult(int requestCode, Intent data) {
+		if (data != null) {
+			String titleName = data.getStringExtra("cityname");
+			setCacheStr("titleName", titleName);
+			if (!"".equals(titleName)) {
+				mTitle.setText(titleName + "天气");
+				setBack(titleName);
+				try {
+					loadData(getWeatherUrl(titleName));
+				} catch (Exception e) {
+				}
+			}
+		}
 	}
 
 	private void initPager() {

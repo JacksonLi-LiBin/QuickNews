@@ -15,11 +15,11 @@ import android.view.Window;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import io.vov.vitamio.LibsChecker;
 import io.vov.vitamio.MediaPlayer;
 import io.vov.vitamio.MediaPlayer.OnBufferingUpdateListener;
 import io.vov.vitamio.MediaPlayer.OnInfoListener;
 import io.vov.vitamio.MediaPlayer.OnPreparedListener;
-import io.vov.vitamio.Vitamio;
 import io.vov.vitamio.widget.MediaController;
 import io.vov.vitamio.widget.VideoView;
 
@@ -45,7 +45,7 @@ public class VideoPlayActivity extends BaseActivity
 	@AfterInject
 	void init() {
 		try {
-			if (!Vitamio.isInitialized(this)) {
+			if (!LibsChecker.checkVitamioLibs(this)) {
 				return;
 			}
 		} catch (Exception e) {
@@ -83,7 +83,7 @@ public class VideoPlayActivity extends BaseActivity
 	@Override
 	public void onBufferingUpdate(MediaPlayer mp, int percent) {
 		mLoadRate.setText(percent + "%");
-		// mVideoView.setFileName(title);
+		mVideoView.setFileName(title);
 	}
 
 	@Override
