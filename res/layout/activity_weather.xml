@@ -1,8 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:flipview="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
-    
+    android:background="@drawable/biz_news_local_weather_bg_big" >
 
-</LinearLayout>
+    <include
+        android:id="@+id/include1"
+        layout="@layout/common_title_bar" />
+
+    <RelativeLayout
+        android:id="@+id/layout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/include1"
+        android:gravity="center" >
+
+        <ImageView
+            android:id="@+id/weatherImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="48.0dp"
+            android:layout_marginTop="61.0dp"
+            android:src="@drawable/biz_plugin_weather_qing" />
+
+        <TextView
+            android:id="@+id/weatherTemp"
+            style="@style/weather_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/weatherImage"
+            android:layout_marginTop="5.0dp"
+            android:layout_toRightOf="@+id/weatherImage"
+            android:text="22℃-28℃" />
+
+        <TextView
+            android:id="@+id/wind"
+            style="@style/weather_temp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/weatherImage"
+            android:layout_alignLeft="@+id/weather"
+            android:layout_marginBottom="14dp"
+            android:text="微风" />
+
+        <TextView
+            android:id="@+id/weather"
+            style="@style/weather_temp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/wind"
+            android:layout_alignLeft="@+id/weatherTemp"
+            android:layout_marginBottom="14dp"
+            android:text="阵雨转阴" />
+    </RelativeLayout>
+
+    <com.lb.quicknews.wedget.gesture.EnableChildSlideFrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layout1" >
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vPager"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+        </android.support.v4.view.ViewPager>
+    </com.lb.quicknews.wedget.gesture.EnableChildSlideFrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/include1"
+        android:layout_marginTop="28.0dp"
+        android:gravity="center" >
+
+        <TextView
+            android:id="@+id/weather_date"
+            style="@style/weather_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="10.0dp"
+            android:text="2014年6月30日"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/week"
+            style="@style/weather_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10.0dp"
+            android:text="星期一" />
+    </LinearLayout>
+
+</RelativeLayout>

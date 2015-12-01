@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/week"
+        style="@style/weather_weather"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18.0dp"
+        android:text="星期一" />
+
+    <ImageView
+        android:id="@+id/weather_image"
+        android:layout_width="64.0dp"
+        android:layout_height="64.0dp"
+        android:layout_marginTop="10.0dp"
+        android:src="@drawable/biz_plugin_weather_baoxue" />
+
+    <TextView
+        android:id="@+id/temperature"
+        style="@style/weather_weather"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="20℃-33℃" />
+
+    <TextView
+        android:id="@+id/weather"
+        style="@style/weather_weather"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10.0dp"
+        android:text="暴雪" />
+
+    <TextView
+        android:id="@+id/wind"
+        style="@style/weather_weather"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10.0dp"
+        android:text="微风" />
+
+</LinearLayout>

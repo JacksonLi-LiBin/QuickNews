@@ -39,7 +39,7 @@ import android.view.View;
 import android.widget.ProgressBar;
 
 @EFragment(R.layout.fragment_main)
-public class TupianReDianFragment extends BaseFragment
+public class TupianMingXingFragment extends BaseFragment
 		implements SwipeRefreshLayout.OnRefreshListener, OnSliderClickListener {
 	SliderLayout mDemoSlider;
 	@ViewById(R.id.swipe_container)
@@ -53,7 +53,7 @@ public class TupianReDianFragment extends BaseFragment
 	public int indexId;
 	public int index;
 	public int count = 0;
-	public long lastupdatetimeredian;
+	public long lastupdatetimingxing;
 	@Bean
 	PhotoAdapter photoAdapter;
 	List<PhotoModle> listModles;
@@ -64,7 +64,7 @@ public class TupianReDianFragment extends BaseFragment
 			String result = (String) msg.obj;
 			switch (msg.what) {
 			case 0:
-				getMyActivity().setCacheStr("TupianReDianFragment", result);
+				getMyActivity().setCacheStr("TupianMingXingFragment", result);
 				if (isRefresh) {
 					isRefresh = false;
 					photoAdapter.clear();
@@ -90,21 +90,21 @@ public class TupianReDianFragment extends BaseFragment
 		listModles = new ArrayList<PhotoModle>();
 		url_maps = new HashMap<String, String>();
 		newHashMap = new HashMap<String, PhotoModle>();
-		int count = PreferencesUtils.getInt(getActivity(), "indexredian");
-		lastupdatetimeredian = PreferencesUtils.getLong(getActivity(), "lastupdatetimeredian");
+		int count = PreferencesUtils.getInt(getActivity(), "indexmingxing");
+		lastupdatetimingxing = PreferencesUtils.getLong(getActivity(), "lastupdatetimingxing");
 		if (count != -1) {
-			if ((lastupdatetimeredian + (24 * 60 * 60 * 1000) < System.currentTimeMillis())) {
-				lastupdatetimeredian = System.currentTimeMillis();
-				PreferencesUtils.putLong(getActivity(), "lastupdatetimeredian", lastupdatetimeredian);
-				int beishu = (int) (System.currentTimeMillis() / (lastupdatetimeredian + (24 * 60 * 60 * 1000)));
+			if ((lastupdatetimingxing + (24 * 60 * 60 * 1000) < System.currentTimeMillis())) {
+				lastupdatetimingxing = System.currentTimeMillis();
+				PreferencesUtils.putLong(getActivity(), "lastupdatetimingxing", lastupdatetimingxing);
+				int beishu = (int) (System.currentTimeMillis() / (lastupdatetimingxing + (24 * 60 * 60 * 1000)));
 				count = (count + 5) * beishu;
 			} else {
 				indexId = count;
 			}
 		} else {
-			indexId = 42606;
-			PreferencesUtils.putLong(getActivity(), "lastupdatetimeredian", System.currentTimeMillis());
-			PreferencesUtils.putInt(getActivity(), "indexredian", indexId);
+			indexId = 42262;
+			PreferencesUtils.putLong(getActivity(), "lastupdatetimingxing", System.currentTimeMillis());
+			PreferencesUtils.putInt(getActivity(), "indexmingxing", indexId);
 		}
 		index = indexId;
 	}
@@ -119,14 +119,14 @@ public class TupianReDianFragment extends BaseFragment
 		AnimationAdapter animationAdapter = new CardsAnimationAdapter(photoAdapter);
 		animationAdapter.setAbsListView(mListView);
 		mListView.setAdapter(animationAdapter);
-		loadData(getPhotosUrl(indexId + ""));
+		loadData(getMingXingPicsUrl(indexId + ""));
 		mListView.setOnBottomListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 				currentPage++;
 				indexId = indexId - 10;
-				loadData(getPhotosUrl(indexId + ""));
+				loadData(getMingXingPicsUrl(indexId + ""));
 			}
 		});
 	}
@@ -146,7 +146,7 @@ public class TupianReDianFragment extends BaseFragment
 			mListView.onBottomComplete();
 			mProgressBar.setVisibility(View.GONE);
 			getMyActivity().showShortToast(getString(R.string.not_network));
-			String result = getMyActivity().getCacheStr("TupianReDianFragment");
+			String result = getMyActivity().getCacheStr("TupianMingXingFragment");
 			if (!StringUtils.isEmpty(result)) {
 				getResult(result);
 			}
@@ -185,10 +185,10 @@ public class TupianReDianFragment extends BaseFragment
 				currentPage = 1;
 				isRefresh = true;
 				index += 5;
-				loadData(getPhotosUrl(index + ""));
+				loadData(getMingXingPicsUrl(index + ""));
 				url_maps.clear();
 				mDemoSlider.removeAllSliders();
-				PreferencesUtils.putInt(getActivity(), "indexredian", index);
+				PreferencesUtils.putInt(getActivity(), "indexmingxing", index);
 			}
 		}, 2000);
 	}

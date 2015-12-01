@@ -33,7 +33,7 @@ import android.view.View;
 import android.widget.ProgressBar;
 
 @EFragment(R.layout.fragment_main)
-public class TupianSinaJingXuanFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
+public class TupianSinaGuShiFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
 	@ViewById(R.id.swipe_container)
 	SwipeRefreshLayout swipeLayout;
 	@ViewById(R.id.listview)
@@ -51,7 +51,7 @@ public class TupianSinaJingXuanFragment extends BaseFragment implements SwipeRef
 			String result = (String) msg.obj;
 			switch (msg.what) {
 			case 0:
-				getMyActivity().setCacheStr("TupianSinaJingXuanFragment" + currentPage, result);
+				getMyActivity().setCacheStr("TupianSinaGuShiFragment" + currentPage, result);
 				if (isRefresh) {
 					isRefresh = false;
 					pictureAdapter.clear();
@@ -85,14 +85,14 @@ public class TupianSinaJingXuanFragment extends BaseFragment implements SwipeRef
 		AnimationAdapter animationAdapter = new CardsAnimationAdapter(pictureAdapter);
 		animationAdapter.setAbsListView(mListView);
 		mListView.setAdapter(animationAdapter);
-		loadData(getSinaJingXuan(index + ""));
+		loadData(getSinaGuShi(index + ""));
 		mListView.setOnBottomListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 				currentPage++;
 				index += 1;
-				loadData(getSinaJingXuan(index + ""));
+				loadData(getSinaGuShi(index + ""));
 			}
 		});
 	}
@@ -114,7 +114,7 @@ public class TupianSinaJingXuanFragment extends BaseFragment implements SwipeRef
 				currentPage = 1;
 				isRefresh = true;
 				index = 1;
-				loadData(getSinaJingXuan(index + ""));
+				loadData(getSinaGuShi(index + ""));
 			}
 		}, 2000);
 	}
@@ -126,7 +126,7 @@ public class TupianSinaJingXuanFragment extends BaseFragment implements SwipeRef
 			mListView.onBottomComplete();
 			mProgressBar.setVisibility(View.GONE);
 			getMyActivity().showShortToast(getString(R.string.not_network));
-			String result = getMyActivity().getCacheStr("TupianSinaJingXuanFragment" + currentPage);
+			String result = getMyActivity().getCacheStr("TupianSinaGuShiFragment" + currentPage);
 			if (!StringUtils.isEmpty(result)) {
 				getResult(result);
 			}

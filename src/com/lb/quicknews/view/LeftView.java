@@ -5,9 +5,10 @@ import org.androidannotations.annotations.EViewGroup;
 
 import com.lb.quicknews.R;
 import com.lb.quicknews.activity.BaseActivity;
+import com.lb.quicknews.activity.MainActivity_;
 import com.lb.quicknews.activity.MoreActivity_;
 import com.lb.quicknews.activity.NewsActivity_;
-import com.lb.quicknews.activity.PictureActivity_;
+import com.lb.quicknews.activity.PictureSinaActivity_;
 import com.lb.quicknews.activity.VideoActivity_;
 import com.lb.quicknews.activity.WeatherActivity_;
 import com.lb.quicknews.initview.SlidingMenuView;
@@ -27,7 +28,7 @@ public class LeftView extends LinearLayout {
 
 	@Click(R.id.pics)
 	public void enterPics(View view) {
-		context.openActivity(PictureActivity_.class);
+		context.openActivity(PictureSinaActivity_.class);
 		isShow();
 	}
 
@@ -39,7 +40,6 @@ public class LeftView extends LinearLayout {
 
 	@Click(R.id.news)
 	public void enterNews(View view) {
-		context.openActivity(NewsActivity_.class);
 		isShow();
 	}
 

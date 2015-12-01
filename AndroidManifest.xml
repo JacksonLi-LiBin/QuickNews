@@ -28,8 +28,7 @@
             android:name="io.vov.vitamio.activity.InitActivity"
             android:configChanges="orientation|screenSize|smallestScreenSize|keyboard|keyboardHidden|navigation"
             android:launchMode="singleTop"
-            android:screenOrientation="portrait"
-            android:theme="@style/SlideAppTheme"
+            android:theme="@android:style/Theme.NoTitleBar"
             android:windowSoftInputMode="stateAlwaysHidden" >
         </activity>
         <activity
@@ -56,13 +55,24 @@
         </activity>
         <activity android:name=".activity.ImageDetailActivity_" >
         </activity>
-        <activity android:name=".activity.DetailsActivity_" >
+        <activity
+            android:name=".activity.DetailsActivity_"
+            android:theme="@style/SlideAppTheme" >
         </activity>
-        <activity android:name=".activity.VideoPlayActivity_" >
+        <activity
+            android:name=".activity.VideoPlayActivity_"
+            android:launchMode="singleTask"
+            android:process=":vitamio"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppBaseTheme" >
         </activity>
         <activity android:name=".activity.ChannelActivity_" >
         </activity>
         <activity android:name=".activity.PhotoDetailActivity_" >
+        </activity>
+        <activity android:name=".activity.PictureSinaActivity_" >
+        </activity>
+        <activity android:name=".activity.PictureDetailActivity_" >
         </activity>
     </application>
 

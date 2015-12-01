@@ -70,7 +70,7 @@ public class PictureSinaJson extends JsonPacket {
 				return null;
 			}
 			PictureModle pictureModle = null;
-			JSONArray jsonArray = new JSONObject(res).getJSONArray("data");
+			JSONArray jsonArray = new JSONObject(res).getJSONObject("data").getJSONArray("list");
 			for (int i = 0; i < jsonArray.length(); i++) {
 				pictureModle = readJsonPictureModle(jsonArray.getJSONObject(i));
 				pictureModles.add(pictureModle);

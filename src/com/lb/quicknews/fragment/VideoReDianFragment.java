@@ -14,12 +14,13 @@ import org.androidannotations.annotations.ViewById;
 
 import com.lb.quicknews.R;
 import com.lb.quicknews.activity.BaseActivity;
-import com.lb.quicknews.activity.PictureDetailActivity_;
+import com.lb.quicknews.activity.VideoPlayActivity_;
 import com.lb.quicknews.adapter.CardsAnimationAdapter;
-import com.lb.quicknews.adapter.PictureAdapter;
-import com.lb.quicknews.bean.PictureModle;
+import com.lb.quicknews.adapter.VideoAdapter;
+import com.lb.quicknews.bean.VideoModle;
 import com.lb.quicknews.http.HttpUtil;
-import com.lb.quicknews.http.json.PictureSinaJson;
+import com.lb.quicknews.http.Url;
+import com.lb.quicknews.http.json.VideoListJson;
 import com.lb.quicknews.initview.InitView;
 import com.lb.quicknews.utils.StringUtils;
 import com.lb.quicknews.wedget.swipelistview.SwipeListView;
@@ -30,37 +31,41 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.ProgressBar;
 
 @EFragment(R.layout.fragment_main)
-public class TupianSinaJingXuanFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
+public class VideoReDianFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
 	@ViewById(R.id.swipe_container)
 	SwipeRefreshLayout swipeLayout;
 	@ViewById(R.id.listview)
 	SwipeListView mListView;
 	@ViewById(R.id.progressBar)
 	ProgressBar mProgressBar;
-	public int index = 1;
 	@Bean
-	PictureAdapter pictureAdapter;
-	List<PictureModle> listModles;
+	VideoAdapter videoAdapter;
+	List<VideoModle> listModles;
+	private int index = 0;
 	private boolean isRefresh = false;
 	private Handler handler = new Handler(new Handler.Callback() {
+
 		@Override
 		public boolean handleMessage(Message msg) {
 			String result = (String) msg.obj;
 			switch (msg.what) {
 			case 0:
-				getMyActivity().setCacheStr("TupianSinaJingXuanFragment" + currentPage, result);
+				getMyActivity().setCacheStr("VideoReDianFragment" + currentPage, result);
 				if (isRefresh) {
 					isRefresh = false;
-					pictureAdapter.clear();
+					videoAdapter.clear();
 					listModles.clear();
 				}
 				mProgressBar.setVisibility(View.GONE);
 				swipeLayout.setRefreshing(false);
-				List<PictureModle> list = PictureSinaJson.getInstance(getActivity()).readJsonPictureListModles(result);
-				pictureAdapter.appendList((ArrayList<PictureModle>) list);
+
+				List<VideoModle> list = VideoListJson.getInstance(getActivity()).readJsonVideoModles(result,
+						Url.VideoReDianId);
+				videoAdapter.appendList(list);
 				listModles.addAll(list);
 				mListView.onBottomComplete();
 				break;
@@ -74,7 +79,7 @@ public class TupianSinaJingXuanFragment extends BaseFragment implements SwipeRef
 
 	@AfterInject
 	void init() {
-		listModles = new ArrayList<PictureModle>();
+		listModles = new ArrayList<VideoModle>();
 	}
 
 	@AfterViews
@@ -82,27 +87,59 @@ public class TupianSinaJingXuanFragment extends BaseFragment implements SwipeRef
 		swipeLayout.setOnRefreshListener(this);
 		InitView.getInstance().initSwipeRefreshLayout(swipeLayout);
 		InitView.getInstance().initListView(mListView, getActivity());
-		AnimationAdapter animationAdapter = new CardsAnimationAdapter(pictureAdapter);
+		AnimationAdapter animationAdapter = new CardsAnimationAdapter(videoAdapter);
 		animationAdapter.setAbsListView(mListView);
 		mListView.setAdapter(animationAdapter);
-		loadData(getSinaJingXuan(index + ""));
-		mListView.setOnBottomListener(new View.OnClickListener() {
-
+		loadData(getVideoUrl(index + "", Url.VideoReDianId));
+		mListView.setOnBottomListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				currentPage++;
-				index += 1;
-				loadData(getSinaJingXuan(index + ""));
+				index += 10;
+				loadData(getVideoUrl(index + "", Url.VideoReDianId));
 			}
 		});
 	}
 
+	private void loadData(String url) {
+		if (getMyActivity().hasNetWork()) {
+			loadNewList(url);
+		} else {
+			mListView.onBottomComplete();
+			mProgressBar.setVisibility(View.GONE);
+			getMyActivity().showShortToast(getString(R.string.not_network));
+			String result = getMyActivity().getCacheStr("VideoReDianFragment" + currentPage);
+			if (!StringUtils.isEmpty(result)) {
+				getResult(result);
+			}
+		}
+	}
+
 	@ItemClick(R.id.listview)
 	void onItemClick(int position) {
-		PictureModle pictureModle = listModles.get(position);
 		Bundle bundle = new Bundle();
-		bundle.putString("pic_id", pictureModle.getId());
-		((BaseActivity) getActivity()).openActivity(PictureDetailActivity_.class, bundle, 0);
+		bundle.putString("playUrl", listModles.get(position).getMp4Hd_url());
+		bundle.putString("filename", listModles.get(position).getTitle());
+		((BaseActivity) getActivity()).openActivity(VideoPlayActivity_.class, bundle, 0);
+	}
+
+	@Background
+	void loadNewList(String url) {
+		String result;
+		try {
+			result = HttpUtil.getByHttpClient(getActivity(), url, null);
+			getResult(result);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	@UiThread
+	public void getResult(String result) {
+		Message msg = new Message();
+		msg.what = 0;
+		msg.obj = result;
+		handler.sendMessage(msg);
 	}
 
 	@Override
@@ -113,42 +150,10 @@ public class TupianSinaJingXuanFragment extends BaseFragment implements SwipeRef
 			public void run() {
 				currentPage = 1;
 				isRefresh = true;
-				index = 1;
-				loadData(getSinaJingXuan(index + ""));
+				index = 0;
+				loadData(getVideoUrl(index + "", Url.VideoReDianId));
 			}
 		}, 2000);
 	}
 
-	private void loadData(String url) {
-		if (getMyActivity().hasNetWork()) {
-			loadNewList(url);
-		} else {
-			mListView.onBottomComplete();
-			mProgressBar.setVisibility(View.GONE);
-			getMyActivity().showShortToast(getString(R.string.not_network));
-			String result = getMyActivity().getCacheStr("TupianSinaJingXuanFragment" + currentPage);
-			if (!StringUtils.isEmpty(result)) {
-				getResult(result);
-			}
-		}
-	}
-
-	@Background
-	void loadNewList(String url) {
-		String result = "";
-		try {
-			result = HttpUtil.getByHttpClient(getActivity(), url, null);
-			getResult(result);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-
-	@UiThread
-	void getResult(String result) {
-		Message msg = new Message();
-		msg.what = 0;
-		msg.obj = result;
-		handler.sendMessage(msg);
-	}
 }

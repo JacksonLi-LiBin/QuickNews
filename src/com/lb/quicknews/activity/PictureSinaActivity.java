@@ -1,7 +1,6 @@
 package com.lb.quicknews.activity;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import org.androidannotations.annotations.AfterInject;
 import org.androidannotations.annotations.AfterViews;
@@ -11,59 +10,57 @@ import org.androidannotations.annotations.ViewById;
 import com.lb.quicknews.R;
 import com.lb.quicknews.adapter.MyOnClickListener;
 import com.lb.quicknews.adapter.NewsFragmentPagerAdapter;
-import com.lb.quicknews.fragment.VideoGaoXiaoFragment_;
-import com.lb.quicknews.fragment.VideoJingPinFragment_;
-import com.lb.quicknews.fragment.VideoReDianFragment_;
-import com.lb.quicknews.fragment.VideoYuLeFragment_;
+import com.lb.quicknews.fragment.TupianSinaGuShiFragment_;
+import com.lb.quicknews.fragment.TupianSinaJingXuanFragment_;
+import com.lb.quicknews.fragment.TupianSinaMeiTuFragment_;
+import com.lb.quicknews.fragment.TupianSinaQuTuFragment_;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.widget.RadioButton;
-import android.widget.TextView;
 
-@EActivity(R.layout.activity_video)
-public class VideoActivity extends BaseActivity {
+@EActivity(R.layout.activity_picture)
+public class PictureSinaActivity extends BaseActivity {
 	@ViewById(R.id.vPager)
 	ViewPager mViewPager;
-	@ViewById(R.id.video_redian)
-	RadioButton mReDian;
-	@ViewById(R.id.video_yule)
-	RadioButton mYuLe;
-	@ViewById(R.id.video_gaoxiao)
-	RadioButton mGaoXiao;
-	@ViewById(R.id.video_jingpin)
-	RadioButton mJingPin;
-	@ViewById(R.id.title)
-	TextView mTitle;
-	List<Fragment> fragments;
+	@ViewById(R.id.redian)
+	RadioButton mJingXuan;
+	@ViewById(R.id.dujia)
+	RadioButton mQuTu;
+	@ViewById(R.id.titan)
+	RadioButton mGuShi;
+	@ViewById(R.id.mingxing)
+	RadioButton mMeiTu;
+	private ArrayList<Fragment> fragments;
 
 	@AfterInject
 	void init() {
 		fragments = new ArrayList<Fragment>();
-		fragments.add(new VideoReDianFragment_());
-		fragments.add(new VideoYuLeFragment_());
-		fragments.add(new VideoGaoXiaoFragment_());
-		fragments.add(new VideoJingPinFragment_());
+		fragments.add(new TupianSinaJingXuanFragment_());
+		fragments.add(new TupianSinaQuTuFragment_());
+		fragments.add(new TupianSinaMeiTuFragment_());
+		fragments.add(new TupianSinaGuShiFragment_());
 	}
 
 	@AfterViews
 	void initView() {
-		mTitle.setText("视频新闻");
-		initPager();
+		try {
+			initPager();
+		} catch (Exception e) {
+		}
 	}
 
 	private void initPager() {
 		mViewPager.setOffscreenPageLimit(2);
-		NewsFragmentPagerAdapter mAdapter = new NewsFragmentPagerAdapter(getSupportFragmentManager(),
-				(ArrayList<Fragment>) fragments);
-		mViewPager.setAdapter(mAdapter);
+		NewsFragmentPagerAdapter mAdapetr = new NewsFragmentPagerAdapter(getSupportFragmentManager(), fragments);
+		mViewPager.setAdapter(mAdapetr);
 		mViewPager.setCurrentItem(0);
 		mViewPager.setOnPageChangeListener(new MyOnPageChangeListener());
-		mReDian.setOnClickListener(new MyOnClickListener(0, mViewPager));
-		mYuLe.setOnClickListener(new MyOnClickListener(1, mViewPager));
-		mGaoXiao.setOnClickListener(new MyOnClickListener(2, mViewPager));
-		mJingPin.setOnClickListener(new MyOnClickListener(3, mViewPager));
+		mJingXuan.setOnClickListener(new MyOnClickListener(0, mViewPager));
+		mQuTu.setOnClickListener(new MyOnClickListener(1, mViewPager));
+		mMeiTu.setOnClickListener(new MyOnClickListener(2, mViewPager));
+		mGuShi.setOnClickListener(new MyOnClickListener(3, mViewPager));
 	}
 
 	public class MyOnPageChangeListener implements OnPageChangeListener {
@@ -99,9 +96,9 @@ public class VideoActivity extends BaseActivity {
 	}
 
 	private void setRadioButtonCheck(boolean b, boolean c, boolean d, boolean e) {
-		mReDian.setChecked(b);
-		mYuLe.setChecked(c);
-		mGaoXiao.setChecked(d);
-		mJingPin.setChecked(e);
+		mJingXuan.setChecked(b);
+		mQuTu.setChecked(c);
+		mMeiTu.setChecked(d);
+		mGuShi.setChecked(e);
 	}
 }
